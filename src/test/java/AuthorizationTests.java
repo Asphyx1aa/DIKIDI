@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.MainPage;
-import pages.ProfilePage;
 
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
@@ -35,7 +34,7 @@ public class AuthorizationTests extends TestBase {
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
                 .setUserNumber(userNumber)
-                .setUserPassword(userPassword).clickOnUserButton()
+                .setUserPassword(userPassword).clickOnUserProfile()
                 .openProfilePage()
                 .assertThatNameOfUserIsCorrect(userName);
     }

@@ -51,7 +51,7 @@ public class MainPage {
     }
 
     @Step("Кликаем по профилю пользователя")
-    public MainPage clickOnUserButton() {
+    public MainPage clickOnUserProfile() {
         userProfileButton.click();
         return this;
     }
