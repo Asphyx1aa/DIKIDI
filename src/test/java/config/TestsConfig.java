@@ -1,0 +1,20 @@
+package config;
+
+import org.aeonbits.owner.Config;
+
+@Config.Sources({
+        "classpath:config.properties"
+})
+public interface TestsConfig extends Config {
+    @Key("BASE_URL")
+    String getBaseUrl();
+
+    @Key("USER_PHONE")
+    String getUserPhone();
+
+    @Key("USER_PASSWORD")
+    String getUserPassword();
+
+    @Key("USER_NAME")
+    String getUserName();
+}
