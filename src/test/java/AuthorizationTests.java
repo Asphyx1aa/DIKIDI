@@ -1,7 +1,7 @@
-import config.TestsConfig;
+
+import TestData.UserData;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -15,8 +15,6 @@ public class AuthorizationTests extends TestBase {
 
     MainPage mainPage = new MainPage();
 
-    TestsConfig authData = ConfigFactory.create(TestsConfig.class);
-
     @Test
     @Severity(BLOCKER)
     @Tags({
@@ -25,17 +23,16 @@ public class AuthorizationTests extends TestBase {
     })
     @DisplayName("Проверка успешной авторизации по номеру телефона")
     void successfulAuthorizationByNumber() {
-        String userNumber = authData.getUserPhone();
-        String userPassword = authData.getUserPassword();
-        String userName = authData.getUserName();
+        UserData userData = new UserData();
 
         mainPage.openPage()
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
-                .setUserNumber(userNumber)
-                .setUserPassword(userPassword).clickOnUserProfile()
+                .setUserNumber(userData.getUserNumber())
+                .setUserPassword(userData.getUserPassword())
+                .clickOnUserProfile()
                 .openProfilePage()
-                .assertThatNameOfUserIsCorrect(userName);
+                .assertThatNameOfUserIsCorrect(userData.getUserName());
     }
 }

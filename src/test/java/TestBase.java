@@ -16,7 +16,7 @@ public class TestBase {
 
     @BeforeAll
     static void testSetup() {
-        Configuration.baseUrl = "https://test.dikidi.ru";
+        Configuration.baseUrl = config.getBaseUrl();
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
         Configuration.pageLoadStrategy = "eager";
