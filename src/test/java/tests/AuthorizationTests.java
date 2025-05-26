@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import pages.MainPage;
 
 import static io.qameta.allure.SeverityLevel.BLOCKER;
+import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 @Owner("Тимур Власов")
 public class AuthorizationTests extends TestBase {
@@ -44,7 +45,7 @@ public class AuthorizationTests extends TestBase {
             @Tag("registration")
     })
     @DisplayName("Проверка успешной регистрации по номеру телефона")
-    void successfulRegistationByNumber() {
+    void successfulRegistrationByNumber() {
         UserData user = UserData.fakeUserData();
 
         mainPage.openPage()
@@ -55,9 +56,28 @@ public class AuthorizationTests extends TestBase {
                 .setUserName(user.getUserName())
                 .setUserEmail(user.getUserMail())
                 .activateCheckBox()
-                .setUserPassword(user.getUserPassword())
+                .setUserPassword(user.getUserPassword()) // Пока будет падать из-за необходимости ввести код ТГ
                 .clickOnUserProfile()
                 .openProfilePage()
                 .assertThatNameOfUserIsCorrect(user.getUserName());
+    }
+
+    @Test
+    @Severity(CRITICAL)
+    @Tags({
+            @Tag("web"),
+            @Tag("authorization")
+    })
+    @DisplayName("Попытка авторизации с неправильным паролем")
+    void incorrectPasswordTest() {
+        UserData user = UserData.fromConfig();
+
+        mainPage.openPage()
+                .removeCookieBanner()
+                .clickOnAuthButton()
+                .clickOnAuthNumber()
+                .setUserNumber(user.getUserNumber())
+                .setUserPassword("random")
+                .checkThatAlertShowed();
     }
 }

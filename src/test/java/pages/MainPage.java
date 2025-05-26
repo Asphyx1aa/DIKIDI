@@ -5,8 +5,7 @@ import io.qameta.allure.Step;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
@@ -19,8 +18,8 @@ public class MainPage {
             agreementCheckBox = $("#agreement"),
             userAgeCheckBox = $("#age"),
             userEmailInput = $("input[name='repeat_email']"),
-            registrationButton = $("form[action='https://auth.test.dikidi.ru/ajax/check/number/']").$(".btn-auth"),
-            userNameInput = $(".form-group.name").$("input");
+            userNameInput = $(".form-group.name").$("input"),
+            alert = $(".modal-alert");
 
     @Step("Открываем главную страницу")
     public MainPage openPage() {
@@ -74,6 +73,12 @@ public class MainPage {
     public MainPage activateCheckBox() {
         agreementCheckBox.click();
         userAgeCheckBox.click();
+        return this;
+    }
+
+    @Step("Проверяем, что появился алерт о том, что указан неверный пароль")
+    public MainPage checkThatAlertShowed() {
+        alert.shouldBe(visible).shouldHave(text("Неверный логин или пароль"));
         return this;
     }
 
