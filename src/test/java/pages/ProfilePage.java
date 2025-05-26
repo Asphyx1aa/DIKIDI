@@ -18,7 +18,7 @@ public class ProfilePage {
 
     @Step("Проверяем, что авторизовались в нужного пользователя")
     public ProfilePage assertThatNameOfUserIsCorrect(String userName) {
-        userNameValue.shouldBe(visible).shouldHave(attribute("value", "Тимур Власов"));
+        userNameValue.shouldBe(visible).shouldHave(attribute("value", userName));
         return this;
     }
 }

@@ -12,6 +12,9 @@ public interface TestsConfig extends Config {
     @Key("USER_PHONE")
     String getUserPhone();
 
+    @Key("USER_EMAIL")
+    String getUserEmail();
+
     @Key("USER_PASSWORD")
     String getUserPassword();
 
