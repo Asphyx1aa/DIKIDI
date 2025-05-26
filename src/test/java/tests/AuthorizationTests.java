@@ -31,8 +31,7 @@ public class AuthorizationTests extends TestBase {
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
-                .setUserNumber(user.getUserNumber())
-                .setUserPassword(user.getUserPassword())
+                .fillAuthForm(user.getUserNumber(), user.getUserPassword())
                 .clickOnUserProfile()
                 .openProfilePage()
                 .assertThatNameOfUserIsCorrect(user.getUserName());
@@ -52,11 +51,7 @@ public class AuthorizationTests extends TestBase {
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
-                .setUserNumber(user.getUserNumber())
-                .setUserName(user.getUserName())
-                .setUserEmail(user.getUserMail())
-                .activateCheckBox()
-                .setUserPassword(user.getUserPassword()) // Пока будет падать из-за необходимости ввести код ТГ
+                .fillRegistrationForm(user.getUserNumber(), user.getUserName(), user.getUserMail(), user.getUserPassword()) // Пока будет падать из-за необходимости ввести код ТГ
                 .clickOnUserProfile()
                 .openProfilePage()
                 .assertThatNameOfUserIsCorrect(user.getUserName());
@@ -76,8 +71,7 @@ public class AuthorizationTests extends TestBase {
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
-                .setUserNumber(user.getUserNumber())
-                .setUserPassword("random")
+                .fillAuthForm(user.getUserNumber(), "random")
                 .checkThatAlertShowed();
     }
 }

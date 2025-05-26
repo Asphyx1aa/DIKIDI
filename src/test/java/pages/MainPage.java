@@ -45,34 +45,21 @@ public class MainPage {
         return this;
     }
 
-    @Step("Вводим номер телефона в поле для ввода")
-    public MainPage setUserNumber(String userNumber) {
+    @Step("Заполняем форму авторизации")
+    public MainPage fillAuthForm(String userNumber, String userPassword) {
         userNumberInput.shouldBe(visible).setValue(userNumber);
-        return this;
-    }
-
-    @Step("Вводим пароль в поле для ввода")
-    public MainPage setUserPassword(String userPassword) {
         userPasswordInput.shouldBe(visible).setValue(userPassword).pressEnter();
         return this;
     }
 
-    @Step("Вводим имя пользователя")
-    public MainPage setUserName(String userName) {
+    @Step("Заполняем форму регистрации")
+    public MainPage fillRegistrationForm(String userNumber, String userName, String userEmail, String userPassword) {
+        userNumberInput.shouldBe(visible).setValue(userNumber);
         userNameInput.shouldBe(visible).setValue(userName);
-        return this;
-    }
-
-    @Step("Вводим email пользователя")
-    public MainPage setUserEmail(String userEmail) {
         userEmailInput.shouldBe(visible).setValue(userEmail);
-        return this;
-    }
-
-    @Step("Отмечаем чекбоксы для регистрации")
-    public MainPage activateCheckBox() {
         agreementCheckBox.click();
         userAgeCheckBox.click();
+        userPasswordInput.shouldBe(visible).setValue(userPassword).pressEnter();
         return this;
     }
 
