@@ -1,0 +1,45 @@
+package models;
+
+import io.qameta.allure.Step;
+import io.restassured.http.Cookie;
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
+import static org.hamcrest.Matchers.notNullValue;
+import static specs.AuthSpec.auth;
+import static specs.BaseSpec.baseResponseSpec;
+
+public class AuthResponse {
+    @Step("Авторизуемся в аккаунт пользователя через API")
+    public static Response getAuthorizationResponse(String userNumber, String password) {
+
+        AuthRequest authBody = new AuthRequest(userNumber, password);
+
+            return given()
+                .spec(auth)
+                .body(authBody)
+                    .contentType("multipart/form-data")
+                    .multiPart("number", userNumber)
+                    .multiPart("password", password)
+                .when()
+                .post("https://auth.test.dikidi.ru/ajax/user/auth")
+                .then()
+                .body("callback", notNullValue())
+                .spec(baseResponseSpec(200))
+                .extract()
+                .response();
+    }
+
+    @Step("Получаем куки для авторизации")
+    public static Cookie getTokenCookie(String userNumber, String password) {
+        Response response = getAuthorizationResponse(userNumber, password);
+        Cookie tokenCookie = response.getDetailedCookie("token");
+
+        if (tokenCookie != null) {
+            return tokenCookie;
+        }
+
+        throw new RuntimeException("Куки не получена");
+    }
+}

@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import pages.MainPage;
 
 @Owner("Тимур Власов")
-@Feature("search")
+@Feature("Поиск")
 public class SearchTests extends TestBase {
     MainPage mainPage = new MainPage();
 
@@ -20,6 +20,7 @@ public class SearchTests extends TestBase {
     @DisplayName("Проверка, что поиск возвращает, тот проект, который мы ищем")
     void searchShouldReturnCorrectProjectTest(String companyName) {
         mainPage.openPage()
+                .removeCookieBanner()
                 .setValueInSearchField(companyName)
                 .assertThatCorrectProjectWasFound(companyName);
     }
