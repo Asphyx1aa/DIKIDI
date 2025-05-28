@@ -11,7 +11,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-
 public class TestBase {
 
     final static TestsConfig config = ConfigFactory.create(TestsConfig.class);

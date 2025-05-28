@@ -19,7 +19,7 @@ public class LoginExtension implements BeforeEachCallback {
 
         io.restassured.http.Cookie restAssuredCookie = getTokenCookie(userNumber, userPassword);
 
-        open("/assets/images/star.png");
+        open("/favicon.ico");
 
         // Преобразуем в Selenium Cookie
         Cookie seleniumCookie = new Cookie.Builder(restAssuredCookie.getName(), restAssuredCookie.getValue())
@@ -30,7 +30,6 @@ public class LoginExtension implements BeforeEachCallback {
                 .build();
 
         getWebDriver().manage().addCookie(seleniumCookie);
-
     }
 
 }
