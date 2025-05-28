@@ -5,7 +5,6 @@ import io.restassured.http.Cookie;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.notNullValue;
 import static specs.AuthSpec.auth;
 import static specs.BaseSpec.baseResponseSpec;

@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CompanyPage {
 
-    SelenideElement makeAppointmentButton = $(".booking").$("a[data-record='/ru/record/1684']"),
+    final SelenideElement makeAppointmentButton = $(".booking").$("a[data-record='/ru/record/1684']"),
             iframeForAppointment = $("iframe[style='opacity: 1;']"),
             mastersButtonIframe = $(".nr-option.masters"),
             master = $(".nr-item.sm-master"),

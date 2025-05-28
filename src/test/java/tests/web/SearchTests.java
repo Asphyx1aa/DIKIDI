@@ -10,7 +10,7 @@ import pages.MainPage;
 @Owner("Тимур Власов")
 @Feature("Поиск")
 public class SearchTests extends TestBase {
-    MainPage mainPage = new MainPage();
+    final MainPage mainPage = new MainPage();
 
     @ParameterizedTest
     @ValueSource(strings = {
