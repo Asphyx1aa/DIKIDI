@@ -3,13 +3,11 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
-    SelenideElement authButton = $(".authorization"),
+    final SelenideElement authButton = $(".authorization"),
             authByNumberButton = $(".modal-content").$(".number"),
             userNumberInput = $(".modal-content").$("#number"),
             userPasswordInput = $(".modal-content").$("[name='password']"),
@@ -19,6 +17,8 @@ public class MainPage {
             userAgeCheckBox = $("#age"),
             userEmailInput = $("input[name='repeat_email']"),
             userNameInput = $(".form-group.name").$("input"),
+            mainSearchField = $(".main-search").$("input[type='text']"),
+            companyCard = $(".company.item"),
             alert = $(".modal-alert");
 
     @Step("Открываем главную страницу")
@@ -81,5 +81,17 @@ public class MainPage {
 
         profileButton.click();
         return profilePage;
+    }
+
+    @Step("Вводим название проекта в строку поиска")
+    public MainPage setValueInSearchField(String companyName) {
+        mainSearchField.shouldBe(visible).setValue(companyName).pressEnter();
+        return this;
+    }
+
+    @Step("Проверяем, что проект нашелся")
+    public MainPage assertThatCorrectProjectWasFound(String companyName) {
+        companyCard.shouldBe(visible).shouldHave(text(companyName));
+        return this;
     }
 }

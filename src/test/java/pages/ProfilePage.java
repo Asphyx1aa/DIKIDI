@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class ProfilePage {
-    SelenideElement userNameValue = $("input[name='name']");
+    final SelenideElement userNameValue = $("input[name='name']");
 
     @Step("Открываем страницу профиля авторизованного пользователя")
     public ProfilePage openPage() {

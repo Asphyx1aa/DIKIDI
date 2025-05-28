@@ -63,7 +63,7 @@ dependencies {
     testImplementation("ch.qos.logback:logback-classic:${logbackVersion}")
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 

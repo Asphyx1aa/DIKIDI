@@ -1,4 +1,4 @@
-package tests;
+package tests.web;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
 
-    static TestsConfig config = ConfigFactory.create(TestsConfig.class);
+    final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
 
     @BeforeAll
     static void testSetup() {

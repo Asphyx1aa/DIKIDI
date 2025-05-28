@@ -1,6 +1,7 @@
-package tests;
+package tests.web;
 
 import data.UserData;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import org.junit.jupiter.api.DisplayName;
@@ -13,9 +14,10 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 @Owner("Тимур Власов")
+@Feature("Авторизация / регистрация")
 public class AuthorizationTests extends TestBase {
 
-    MainPage mainPage = new MainPage();
+    final MainPage mainPage = new MainPage();
 
     @Test
     @Severity(BLOCKER)
