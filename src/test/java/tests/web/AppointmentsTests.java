@@ -1,9 +1,11 @@
 package tests.web;
 
 import annotations.WithLogin;
+import config.TestsConfig;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -16,6 +18,8 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 public class AppointmentsTests extends TestBase {
 
     final CompanyPage companyPage = new CompanyPage();
+    TestsConfig config = ConfigFactory.create(TestsConfig.class);
+
 
     @WithLogin
     @Test
@@ -26,7 +30,8 @@ public class AppointmentsTests extends TestBase {
     })
     @DisplayName("Проверяем, что запись к сотруднику работает корректно")
     void successfulCreateAppointmentTest() {
-        companyPage.openCompanyPage("kompashka_natashki_1684")
+
+        companyPage.openCompanyPage(config.getCompanyUrl())
                 .clickOnCreateAppointmentButton()
                 .SwitchToIframe();
     }

@@ -20,4 +20,7 @@ public interface TestsConfig extends Config {
 
     @Key("USER_NAME")
     String getUserName();
+
+    @Key("COMPANY_URL")
+    String getCompanyUrl();
 }
