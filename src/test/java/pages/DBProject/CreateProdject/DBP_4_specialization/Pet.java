@@ -10,4 +10,20 @@ public class Pet {
             Pet = $x("//div[@data-name='pets']"),
             Grooming = $x("label[@for='pets-42']"),
             Veterinary = $x("label[@for='pets-41']");
+
+    public  Pet Pet(){
+        Pet.click();
+        return this;
+    }
+
+    public  Pet Grooming(){
+        Grooming.click();
+        return this;
+    }
+
+    public  Pet Veterinary(){
+        Veterinary.click();
+        return this;
+    }
+
 }
