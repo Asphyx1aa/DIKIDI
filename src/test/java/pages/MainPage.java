@@ -19,7 +19,9 @@ public class MainPage {
             userNameInput = $(".form-group.name").$("input"),
             mainSearchField = $(".main-search").$("input[type='text']"),
             companyCard = $(".company.item"),
-            alert = $(".modal-alert");
+            alert = $(".modal-alert"),
+            forgotPassButton = $(".forgot"),
+            recoveryPassModal = $("div[data-type='recovery']");
 
     @Step("Открываем главную страницу")
     public MainPage openPage() {
@@ -51,6 +53,26 @@ public class MainPage {
         userPasswordInput.shouldBe(visible).setValue(userPassword).pressEnter();
         return this;
     }
+
+    @Step("Заполняем форму авторизации: Номер телефона")
+    public MainPage fillAuthFormUserNumber(String userNumber) {
+        userNumberInput.shouldBe(visible).setValue(userNumber);
+        return this;
+    }
+
+    @Step("Кликаем по кнопке 'Забыли пароль?'")
+    public MainPage clickOnForgotPass() {
+        forgotPassButton.click();
+        return this;
+    }
+
+    @Step("Проверяем, что появилась модальное окно для ввода кода подтвеждения")
+    public MainPage verifyThatRecoveryPassModalAppear() {
+        recoveryPassModal.shouldBe(visible);
+        return this;
+    }
+
+
 
     @Step("Заполняем форму регистрации")
     public MainPage fillRegistrationForm(String userNumber, String userName, String userEmail, String userPassword) {

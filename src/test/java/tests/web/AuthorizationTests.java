@@ -17,7 +17,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Feature("Авторизация / регистрация")
 public class AuthorizationTests extends TestBase {
 
-    final MainPage mainPage = new MainPage();
+    private final MainPage mainPage = new MainPage();
 
     @Test
     @Severity(BLOCKER)
@@ -75,5 +75,24 @@ public class AuthorizationTests extends TestBase {
                 .clickOnAuthNumber()
                 .fillAuthForm(user.getUserNumber(), "random")
                 .checkThatAlertShowed();
+    }
+
+    @Test
+    @Severity(CRITICAL)
+    @Tags({
+            @Tag("web"),
+            @Tag("authorization")
+    })
+    @DisplayName("Проверка работы функции 'Забыли пароль?'")
+    void forgotPasswordTest() {
+        UserData userData = UserData.fromConfig();
+
+        mainPage.openPage()
+                .removeCookieBanner()
+                .clickOnAuthButton()
+                .clickOnAuthNumber()
+                .fillAuthFormUserNumber(userData.getUserNumber())
+                .clickOnForgotPass()
+                .verifyThatRecoveryPassModalAppear(); // Мб нужен какой-то статичный код
     }
 }
