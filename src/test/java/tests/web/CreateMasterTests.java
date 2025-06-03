@@ -10,14 +10,15 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import pages.CompanyPage;
+import pages.MastersPage;
+
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
-@Owner("Тимур Власов")
-@Feature("Запись")
-public class AppointmentsTests extends TestBase {
+@Owner("Разживин Даниил")
+@Feature("Сотрудники")
+public class CreateMasterTests extends TestBase {
 
-    final CompanyPage companyPage = new CompanyPage();
+    final MastersPage mastersPage = new MastersPage();
     TestsConfig config = ConfigFactory.create(TestsConfig.class);
 
 
@@ -26,13 +27,13 @@ public class AppointmentsTests extends TestBase {
     @Severity(BLOCKER)
     @Tags({
             @Tag("web"),
-            @Tag("appointment")
+            @Tag("master")
     })
-    @DisplayName("Проверяем, что запись к сотруднику работает корректно")
-    void successfulCreateAppointmentTest() {
-
-        companyPage.openCompanyPage(config.getCompanyUrl())
-                .clickOnCreateAppointmentButton()
-                 .SwitchToIframe();
+    @DisplayName("Создание сотрудника")
+    void successfulCreateMasterTest() {
+        mastersPage.OpenMastersPage(config.getCompanyUrl())
+            .ClickAddMaster()
+            .InputValueMaster()
+            .ClickSaveMaster();
     }
 }
