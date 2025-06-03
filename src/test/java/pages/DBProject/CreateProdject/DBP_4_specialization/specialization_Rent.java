@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Rent {
+public class specialization_Rent {
     private final SelenideElement
             Rent = $x("//label[@data-name='rent-2']"),
             Rent_Rent = $x("label[@for='rent-2-53']"),

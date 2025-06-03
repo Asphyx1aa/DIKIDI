@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Game {
+public class specialization_Game {
     private final SelenideElement
 
 
@@ -14,22 +14,22 @@ public class Game {
             Quest = $x("label[@for='recreation-43']");
 
 
-    public Game Game(){
+    public specialization_Game Game(){
         Game.click();
         return this;
     }
 
-    public Game Bouling(){
+    public specialization_Game Bouling(){
         Bouling.click();
         return this;
     }
 
-    public Game Kibersport(){
+    public specialization_Game Kibersport(){
         Kibersport.click();
         return this;
     }
 
-    public Game Quest(){
+    public specialization_Game Quest(){
         Quest.click();
         return this;
     }

@@ -33,6 +33,6 @@ public class AppointmentsTests extends TestBase {
 
         companyPage.openCompanyPage(config.getCompanyUrl())
                 .clickOnCreateAppointmentButton()
-                .SwitchToIframe();
+                 .SwitchToIframe();
     }
 }

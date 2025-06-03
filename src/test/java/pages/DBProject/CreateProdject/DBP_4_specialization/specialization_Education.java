@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Education {
+public class specialization_Education {
     private final SelenideElement
 
             Education = $x("//div[@data-name='education']"),
@@ -13,27 +13,27 @@ public class Education {
             Driving_school = $x("label[@for='recreation-48']"),
             Kursy = $x("label[@for='education-50']");
 
-    public Education Education(){
+    public specialization_Education Education(){
         Education.click();
         return this;
     }
 
-    public Education Repetitor(){
+    public specialization_Education Repetitor(){
         Repetitor.click();
         return this;
     }
 
-    public Education Language_school(){
+    public specialization_Education Language_school(){
         Language_school.click();
         return this;
     }
 
-    public Education Driving_school(){
+    public specialization_Education Driving_school(){
         Driving_school.click();
         return this;
     }
 
-    public Education Kursy(){
+    public specialization_Education Kursy(){
         Kursy.click();
         return this;
     }

@@ -4,11 +4,11 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Restaurants {
+public class specialization_Restaurants {
     private final SelenideElement
             Restaurants_Restaurants = $x("label[@for='food-45']");
 
-    public Restaurants Restaurant() {
+    public specialization_Restaurants Restaurant() {
         Restaurants_Restaurants.click();
         return this;
     }

@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Beauty {
+public class specialization_Beauty {
     private final SelenideElement
             Usy_boroda = $x("//label[@for='beauty-25']"),
             Depilation_epilation = $x("//label[@for='beauty-11']"),
@@ -21,57 +21,57 @@ public class Beauty {
 
 
 
-    public Beauty Usy_boroda(){
+    public specialization_Beauty Usy_boroda(){
         Usy_boroda.click();
         return this;
     }
 
-    public Beauty Depilation_epilation(){
+    public specialization_Beauty Depilation_epilation(){
         Depilation_epilation.click();
         return this;
     }
 
-    public Beauty Barberchop(){
+    public specialization_Beauty Barberchop(){
         Barberchop.click();
         return this;
     }
 
-    public Beauty Kosmetologiya_ukhod(){
+    public specialization_Beauty Kosmetologiya_ukhod(){
         Kosmetologiya_ukhod.click();
         return this;
     }
 
-    public Beauty Hairdressing_services(){
+    public specialization_Beauty Hairdressing_services(){
         Hairdressing_services.click();
         return this;
     }
 
-    public Beauty Permanent_tattoo(){
+    public specialization_Beauty Permanent_tattoo(){
         Permanent_tattoo.click();
         return this;
     }
 
-    public Beauty Resnitsy(){
+    public specialization_Beauty Resnitsy(){
         Resnitsy.click();
         return this;
     }
 
-    public Beauty Brovi(){
+    public specialization_Beauty Brovi(){
         Brovi.click();
         return this;
     }
 
-    public Beauty Vizazh(){
+    public specialization_Beauty Vizazh(){
         Vizazh.click();
         return this;
     }
 
-    public Beauty Nogtevoy_servis(){
+    public specialization_Beauty Nogtevoy_servis(){
         Nogtevoy_servis.click();
         return this;
     }
 
-    public Beauty Massage(){
+    public specialization_Beauty Massage(){
         BeautyMassage.click();
         return this;
     }

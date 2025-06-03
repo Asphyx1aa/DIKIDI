@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Car {
+public class specialization_Car {
     private final SelenideElement
 
 
@@ -13,19 +13,19 @@ public class Car {
             Shinomontazh = $x("label[@for='auto-37']"),
             Avtomoyka = $x("label[@for='auto-39']");
 
-    public Car Avtoservis(){
+    public specialization_Car Avtoservis(){
         Avtoservis.click();
         return this;
     }
-    public Car Tekhosmotr(){
+    public specialization_Car Tekhosmotr(){
         Tekhosmotr.click();
         return this;
     }
-    public Car Shinomontazh(){
+    public specialization_Car Shinomontazh(){
         Shinomontazh.click();
         return this;
     }
-    public Car Avtomoyka(){
+    public specialization_Car Avtomoyka(){
         Avtomoyka.click();
         return this;
     }

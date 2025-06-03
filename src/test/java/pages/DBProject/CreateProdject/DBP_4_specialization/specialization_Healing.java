@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Healing {
+public class specialization_Healing {
     private final SelenideElement
             Healing = $x("//div[@data-name='health']"),
             Dentistry = $x("//label['@for='health-31']"),
@@ -13,32 +13,32 @@ public class Healing {
             Analyzes = $x("//label['@for='health-32']"),
             SPA = $x("//label['@for='health-21']");
 
-    public Healing Healing(){
+    public specialization_Healing Healing(){
         Healing.click();
         return this;
     }
 
-    public Healing Dentistry(){
+    public specialization_Healing Dentistry(){
         Dentistry.click();
         return this;
     }
 
-    public Healing Sauna(){
+    public specialization_Healing Sauna(){
         Sauna.click();
         return this;
     }
 
-    public Healing Medicine(){
+    public specialization_Healing Medicine(){
         Medicine.click();
         return this;
     }
 
-    public Healing Analyzes(){
+    public specialization_Healing Analyzes(){
         Analyzes.click();
         return this;
     }
 
-    public Healing SPA(){
+    public specialization_Healing SPA(){
         SPA.click();
         return this;
     }
