@@ -6,6 +6,11 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class Restaurants {
     private final SelenideElement
-            Restaurants = $x("//div[@data-name='food']"),
             Restaurants_Restaurants = $x("label[@for='food-45']");
+
+    public Restaurants Restaurant() {
+        Restaurants_Restaurants.click();
+        return this;
+    }
+
 }

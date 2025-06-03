@@ -26,4 +26,36 @@ public class DBP_6_MainINFO {
             User_agreement = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/202-polzovatelskoe-soglashenie']"),
             Privacy_policies = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/224-politika-konfidentsialnosti']"),
             Create_company = $x("//button[@class='action-btn new-elements-button blue success']");
+
+    public DBP_6_MainINFO FIO(String FIOtext){
+        FIO.setValue(FIOtext);
+      return this;
+    };
+
+//    public DBP_6_MainINFO Street(String Streettext){
+//        Street.setValue(Streettext);
+//        return this;
+//    };
+//
+//    public DBP_6_MainINFO House(String Housetext){
+//        House.setValue(Housetext);
+//        return this;
+//    };
+//
+//    public DBP_6_MainINFO Indecs(Integer Indecstext){
+//        Indecs.setValue(Indecstext);
+//        return this;
+//    };
+//
+//    public DBP_6_MainINFO Phones(String Phonenumder){
+//        Phones.setValue(Phonenumder);
+//        return this;
+//    };
+//
+//    public DBP_6_MainINFO Street(String Streets){
+//        Street.setValue(Streets);
+//        return this;
+//    };
+
+
 }

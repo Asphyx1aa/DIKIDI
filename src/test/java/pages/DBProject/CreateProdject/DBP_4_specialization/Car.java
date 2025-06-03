@@ -12,4 +12,21 @@ public class Car {
             Tekhosmotr = $x("label[@for='auto-40']"),
             Shinomontazh = $x("label[@for='auto-37']"),
             Avtomoyka = $x("label[@for='auto-39']");
+
+    public Car Avtoservis(){
+        Avtoservis.click();
+        return this;
+    }
+    public Car Tekhosmotr(){
+        Tekhosmotr.click();
+        return this;
+    }
+    public Car Shinomontazh(){
+        Shinomontazh.click();
+        return this;
+    }
+    public Car Avtomoyka(){
+        Avtomoyka.click();
+        return this;
+    }
 }
