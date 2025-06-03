@@ -23,7 +23,7 @@ public class AuthResponse {
                     .multiPart("password", password)
                 .when()
                 .post("https://auth.test.dikidi.ru/ajax/user/auth")
-                .then()
+                .then().log().all()
                 .body("callback", notNullValue())
                 .spec(baseResponseSpec(200))
                 .extract()

@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Sport {
+public class specialization_Sport {
     private final SelenideElement
             Sport = $x("//div[@data-name='sport']"),
             Fitness = $x("//label['@for='sport-33']"),

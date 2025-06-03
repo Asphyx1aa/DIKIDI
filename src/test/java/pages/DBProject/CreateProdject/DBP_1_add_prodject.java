@@ -13,27 +13,14 @@ import static com.codeborne.selenide.Selenide.open;
 @Feature("Создание проекта")
 public class DBP_1_add_prodject {
 
-    String FULL_URL = "https://test.dikidi.ru/ru/business/projects";
     //Создание нового проекта
     private final SelenideElement
-            CreateNew = $x("//button[@class='new-elements-button blue create-promotions']"),
             CreateNesw = $x("//div[@class='list-item add-company']"),
     // Получить доступ к проекту
     AccessProject = $x("//div[@class='list-item add-access']");
 
 
 
-    @Step("Открываем страницу проекта")
-    public DBP_1_add_prodject openPage() {
-        open(FULL_URL);
-        return this;
-    }
-
-    @Step("Начала создания проекта - Добавить новый")
-    public DBP_1_add_prodject CreateProject() {
-        CreateNew.click();
-        return this;
-    }
 
     @Step("Начала создания проекта - Создать новый проект")
     public DBP_1_add_prodject CreateNewProdject() {

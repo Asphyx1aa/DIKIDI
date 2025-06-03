@@ -5,7 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class Servise {
+public class specialization_Servise {
 
     private final SelenideElement
 
@@ -14,41 +14,50 @@ public class Servise {
             ServicesMassage = $x("//label[@for='services-19']"),
             Other = $x("//label[@for='services-27']"),
             Coworking = $x("//label[@for='services-54']"),
-            Psychology = $x("//label[@for='services-56']");
+            Psychology = $x("//label[@for='services-56']"),
+            BACK = $x("//button[@class='action-btn new-elements-button-outline blue back']"),
+            Continue = $x("//button[@class='action-btn new-elements-button blue next']");
+
 
     @Step("Специализация - Клининг")
-    public Servise Cleaning() {
+    public specialization_Servise Cleaning() {
         Cleaning.click();
         return this;
     }
 
     @Step("Специализация - Массаж")
-    public Servise Massage() {
+    public specialization_Servise Massage() {
         ServicesMassage.click();
         return this;
     }
 
     @Step("Специализация - Прочее")
-    public Servise Other() {
+    public specialization_Servise Other() {
         Other.click();
         return this;
     }
 
     @Step("Специализация - Коворкинг")
-    public Servise Coworking() {
+    public specialization_Servise Coworking() {
         Coworking.click();
         return this;
     }
 
     @Step("Специализация - Психология")
-    public Servise Psychology() {
+    public specialization_Servise Psychology() {
         Psychology.click();
         return this;
     }
 
     @Step("Специализация - Фотостудия")
-    public Servise Photostudio() {
+    public specialization_Servise Photostudio() {
         Photostudio.click();
+        return this;
+    }
+
+    @Step("Специализация - продолжить")
+    public specialization_Servise Continue() {
+        Continue.click();
         return this;
     }
 
