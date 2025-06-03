@@ -35,6 +35,73 @@ public class DBP_5_AboutYourBusiness {
             ne_pomnyu = $x("//label[@for='remember']");
 
 
+    public DBP_5_AboutYourBusiness Odin_filial(){
+        Odin_filial.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness neskolko(){
+        neskolko.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness ot_2_do_5(){
+        ot_2_do_5.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness ot_6_do_9(){
+        ot_6_do_9.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness ot_10(){
+        ot_10.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness first_experience(){
+        first_experience.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness Work_DIKIDI(){
+        Work_DIKIDI.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness Work_v_drugom_meste(){
+        Work_v_drugom_meste.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness recomendation(){
+        recomendation.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness reklama_v_internete(){
+        reklama_v_internete.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness conference(){
+        conference.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness dovno_znayu(){
+        dovno_znayu.click();
+        return this;
+    };
+
+    public DBP_5_AboutYourBusiness ne_pomnyu(){
+        ne_pomnyu.click();
+        return this;
+    };
+
+
+
 
 
 
