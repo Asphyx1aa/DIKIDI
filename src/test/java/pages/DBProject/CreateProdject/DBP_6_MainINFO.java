@@ -5,6 +5,9 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 @Owner("Никулин Дима")
@@ -14,24 +17,37 @@ public class DBP_6_MainINFO {
 
             //Основная информация
             FIO = $x("//input[@placeholder='Введите название компании']"),
-            COUNTRY = $x("//span[@class='filter-option pull-left']"),
-    //Очень много
+            COUNTRYs = $x("//span[@class='filter-option pull-left']"),
     City = $x("//input[@class='form-control input-city filled']"),
-            Street = $x("//input[@placeholder='Введите название компании']"),
-            House = $x("//input[@placeholder='Введите название компании']"),
-            Indecs = $x("//input[@placeholder='Введите название компании']"),
-            Phones = $x("//input[@placeholder='Введите название компании']"),
-            Promo_code = $x("//input[@placeholder='Введите название компании']"),
-            Consent_checkbox = $("#conditions"),
+            Street = $x("//input[@name='street']"),
+            House = $x("//input[@name='house']"),
+            Indecs = $x("//input[@name='zipcode']"),
+            Phones = $x("//input[@name='phone']"),
+            Promo_code = $x("//input[@name='promo']"),
+            Consent_checkbox = $("#conditions"),// JS  касыль
             User_agreement = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/202-polzovatelskoe-soglashenie']"),
             Privacy_policies = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/224-politika-konfidentsialnosti']"),
             Create_company = $x("//button[@class='action-btn new-elements-button blue success']");
 
+    private  final  SelenideElement COUNTRYChoice(int indexcount) {
+        return $x(String.format("//li[@data-original-index='%d']",indexcount)).shouldBe(visible, Duration.ofSeconds(10));
+    }
+
+//    private  final  SelenideElement COUNTRYChoice(int indexcount) {
+//        return $("//li[@data-original-index='" + indexcount +"']",indexcount)).shouldBe(visible, Duration.ofSeconds(10));
+//    }
 
     @Step("Введите название компании ")
     public DBP_6_MainINFO FIO(String FIOtext){
         FIO.setValue(FIOtext);
       return this;
+    };
+
+    @Step("Выбор страны")
+    public DBP_6_MainINFO COUNTRY(int indexcount){
+        COUNTRYs.click();
+        COUNTRYChoice(indexcount).click();
+        return this;
     };
 
     @Step("Указании улицы")
@@ -40,7 +56,7 @@ public class DBP_6_MainINFO {
         return this;
     };
 
-    @Step("Ввод дома")
+    @Step("Ввод названия дома")
     public DBP_6_MainINFO House(String Housetext){
         House.setValue(Housetext);
         return this;
@@ -58,23 +74,24 @@ public class DBP_6_MainINFO {
         return this;
     };
 
-
     @Step("Ввод промокода")
     public DBP_6_MainINFO Promo_code(String Promo){
         Promo_code.setValue(Promo);
         return this;
     };
 
+    @Step("Кнопка Создать компанию")
     public DBP_6_MainINFO Create_company(){
         Create_company.click();
         return this;
     };
 
+    @Step("Согласие на условия")
     public DBP_6_MainINFO Consent_checkbox(){
         executeJavaScript("document.querySelector('label[for=\"conditions\"]').click();");
-
         return this;
     };
+
 
 
 }

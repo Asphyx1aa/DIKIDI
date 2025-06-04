@@ -4,11 +4,11 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ProfilePage {
     final SelenideElement userNameValue = $("input[name='name']");
+
 
     @Step("Открываем страницу профиля авторизованного пользователя")
     public ProfilePage openPage() {
@@ -21,4 +21,6 @@ public class ProfilePage {
         userNameValue.shouldBe(visible).shouldHave(attribute("value", userName));
         return this;
     }
+
+
 }

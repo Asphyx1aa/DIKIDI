@@ -2,9 +2,11 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import pages.DBProject.CreateProdject.DBP_6_MainINFO;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CompanyPage {
 
@@ -18,7 +20,8 @@ public class CompanyPage {
             finishButton = $(".nr-step.cf").$(".nr-next").$("span"),
             checkbox = $(".nr-step.ai").$("label[for='agreement2-2']"),
             finishButtonSecond = $(".nr-step.ai").$(".nr-continue.nr-shimmer"),
-            service = $(".btn-selected");
+            service = $(".btn-selected"),
+            CheckCreateCompany = $x("//h1[text()='Профиль']");
 
     @Step("Открываем профиль компании")
     public CompanyPage openCompanyPage(String companyId) {
@@ -46,5 +49,15 @@ public class CompanyPage {
         finishButtonSecond.click();
         return this;
     }
+
+    @Step("Проверка url Профиля компании")
+    public  CompanyPage CheckURL () {
+        CheckCreateCompany.shouldBe(visible);
+        return this;
+    }
+
+
+
+
 
 }
