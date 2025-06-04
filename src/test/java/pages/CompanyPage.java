@@ -17,7 +17,7 @@ public class CompanyPage {
             reservationButton = $(".nr-step.sdt").$$(".hour-list").first().$(".nr-time"),
             finishButton = $(".nr-step.cf").$(".nr-next").$("span"),
             checkbox = $(".nr-step.ai").$("label[for='agreement2-2']"),
-            fifinishbutton = $(".nr-step.ai").$(".nr-continue.nr-shimmer"),
+            finishButtonSecond = $(".nr-step.ai").$(".nr-continue.nr-shimmer"),
             service = $(".btn-selected");
 
     @Step("Открываем профиль компании")
@@ -43,7 +43,7 @@ public class CompanyPage {
         reservationButton.click();
         finishButton.click();
         checkbox.click();
-        fifinishbutton.click();
+        finishButtonSecond.click();
         return this;
     }
 
