@@ -12,8 +12,8 @@ public class CompanyPage {
             iframeForAppointment = $("iframe[style='opacity: 1;']"),
             mastersButtonIframe = $(".nr-option.masters"),
             master = $(".nr-item.sm-master"),
-            continueButton = $(".nr-step.sm").$(".nr-continue"),
-            continueButton2 = $(".nr-step.ssm").$(".nr-continue.nr-animated").$("a.btn"),
+            continueButton = $x("//a[@class='btn btn-block btn-default btn-stylized nrs-gradient nr-continue' and text()='Продолжить']"),
+            continueButton2 = $x("//a[@class='btn btn-default btn-stylized nrs-gradient nr-continue' and text()='Продолжить']"),
             reservationButton = $(".nr-step.sdt").$$(".hour-list").first().$(".nr-time"),
             finishButton = $(".nr-step.cf").$(".nr-next").$("span"),
             checkbox = $(".nr-step.ai").$("label[for='agreement2-2']"),
@@ -37,7 +37,7 @@ public class CompanyPage {
         switchTo().frame(iframeForAppointment);
         mastersButtonIframe.click();
         master.shouldBe(visible).click();
-        continueButton.shouldBe(visible).click();
+        continueButton2.shouldBe(visible).click();
         service.shouldBe(visible).click();
         continueButton2.click();
         reservationButton.click();
