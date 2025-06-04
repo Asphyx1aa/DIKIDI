@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import pages.CompanyPage;
+
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
 @Owner("Тимур Власов")
@@ -33,6 +34,11 @@ public class AppointmentsTests extends TestBase {
 
         companyPage.openCompanyPage(config.getCompanyUrl())
                 .clickOnCreateAppointmentButton()
-                 .SwitchToIframe();
+                .switchToIframe()
+                .makeAppointmentToMaster()
+                .chooseMaster()
+                .chooseService()
+                .chooseTimeForAppointment()
+                .clickOnContinueButton();
     }
 }

@@ -19,9 +19,6 @@ public class BaseSpec {
     public static ResponseSpecification baseResponseSpec(int statusCode) {
         return new ResponseSpecBuilder()
                 .expectStatusCode(statusCode)
-                .log(URI)
-                .log(STATUS)
-                .log(BODY)
                 .build();
     }
 }
