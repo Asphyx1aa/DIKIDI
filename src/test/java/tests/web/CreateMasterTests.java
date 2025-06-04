@@ -2,6 +2,7 @@ package tests.web;
 
 import annotations.WithLogin;
 import config.TestsConfig;
+import data.MasterData;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -31,9 +32,17 @@ public class CreateMasterTests extends TestBase {
     })
     @DisplayName("Создание сотрудника")
     void successfulCreateMasterTest() {
+        MasterData masterData = MasterData.fakeMasterData();
         mastersPage.OpenMastersPage(config.getCompanyUrl())
             .ClickAddMaster()
-            .InputValueMaster()
-            .ClickSaveMaster();
+            .InputValueMaster(
+                    masterData.getMasterName(),
+                    masterData.getMasterSurname(),
+                    masterData.getMasterPost())
+            .ClickSaveMaster()
+                .FillProfileMaster(
+                        masterData.getMasterPhoneNumber(),
+                        masterData.getMasterEmail(),
+                        masterData.getMasterInfo());
     }
 }
