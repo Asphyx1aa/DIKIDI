@@ -3,6 +3,7 @@ package pages.DBProject.CreateProdject;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -26,31 +27,39 @@ public class DBP_6_MainINFO {
             Privacy_policies = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/224-politika-konfidentsialnosti']"),
             Create_company = $x("//button[@class='action-btn new-elements-button blue success']");
 
+
+    @Step("Введите название компании ")
     public DBP_6_MainINFO FIO(String FIOtext){
         FIO.setValue(FIOtext);
       return this;
     };
 
+    @Step("Указании улицы")
     public DBP_6_MainINFO Street(String Streettext){
         Street.setValue(Streettext);
         return this;
     };
 
+    @Step("Ввод дома")
     public DBP_6_MainINFO House(String Housetext){
         House.setValue(Housetext);
         return this;
     };
 
+    @Step("Ввод индекса")
     public DBP_6_MainINFO Indecs(String Indecstext){
         Indecs.setValue(Indecstext);
         return this;
     };
 
+    @Step("Ввод номера телефона")
     public DBP_6_MainINFO Phones(String Phonenumder){
         Phones.setValue(Phonenumder);
         return this;
     };
 
+
+    @Step("Ввод промокода")
     public DBP_6_MainINFO Promo_code(String Promo){
         Promo_code.setValue(Promo);
         return this;
