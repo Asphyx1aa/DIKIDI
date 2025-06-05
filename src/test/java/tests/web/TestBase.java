@@ -20,7 +20,8 @@ public class TestBase {
         Configuration.baseUrl = config.getBaseUrl();
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
-        Configuration.pageLoadStrategy = "eager";
+
+        Configuration.holdBrowserOpen = true;
     }
 
     @BeforeEach

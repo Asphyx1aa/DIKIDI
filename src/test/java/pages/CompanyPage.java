@@ -16,8 +16,8 @@ public class CompanyPage {
             master = $(".nr-item.sm-master"),
             continueButtonMaster = $(".nr-step.sm").$(".nr-continue"),
             continueButtonService = $(".nr-step.ssm").$(".nr-continue"),
-            reservationButton = $(".hour-list").$(".nr-time"),
             finishButton = $(".nr-step.cf").$(".nr-continue"),
+            reservationButton = $(".hour-list").$(".nr-time"),
             checkbox = $(".nr-step.ai").$("label[for='agreement2-2']"),
             finishButtonSecond = $(".nr-step.ai").$(".nr-continue.nr-shimmer"),
             service = $(".btn-selected"),
@@ -63,13 +63,22 @@ public class CompanyPage {
 
     @Step("Выбираем время для записи")
     public CompanyPage chooseTimeForAppointment() {
-        reservationButton.shouldBe(visible).hover().click();
+        reservationButton.should(exist).shouldBe(visible);
+        reservationButton.hover().click();
+
         return this;
     }
 
     @Step("Нажимаем на кнопку Продолжить на шаге 'Контактная информация'")
     public CompanyPage clickOnContinueButton() {
-        finishButton.shouldBe(visible).hover().click();
+        finishButton.shouldBe(visible).should(exist).hover().click();
+        return this;
+    }
+
+    @Step("Нажимаем на чекбокс'")
+    public CompanyPage completeAppointment() {
+        checkbox.shouldBe(visible).click();
+        finishButtonSecond.shouldBe(visible).click();
         return this;
     }
 

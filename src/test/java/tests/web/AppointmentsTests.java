@@ -39,6 +39,7 @@ public class AppointmentsTests extends TestBase {
                 .chooseMaster()
                 .chooseService()
                 .chooseTimeForAppointment()
-                .clickOnContinueButton();
+                .clickOnContinueButton()
+                .completeAppointment();
     }
 }
