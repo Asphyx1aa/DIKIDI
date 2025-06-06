@@ -13,6 +13,7 @@ import pages.CompanyPage;
 import pages.RecordPage;
 
 import static io.qameta.allure.SeverityLevel.BLOCKER;
+import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 @Owner("Тимур Власов")
 @Feature("Запись")
@@ -71,7 +72,7 @@ public class AppointmentsTests extends TestBase {
 
     @WithLogin
     @Test
-    @Severity(BLOCKER)
+    @Severity(CRITICAL)
     @Tags({
             @Tag("web"),
             @Tag("appointment")
@@ -79,6 +80,7 @@ public class AppointmentsTests extends TestBase {
     @DisplayName("Проверяем, что запись отменяется успешно")
     void successfulCancellingAppointmentTest() {
         recordPage.openPage()
-                .clickOnCancelAppointment();
+                .clickOnCancelAppointment()
+                .confirmCancellation();
     }
 }
