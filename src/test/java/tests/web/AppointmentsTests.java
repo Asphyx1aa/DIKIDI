@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import pages.BookingWidgetPage;
 import pages.CompanyPage;
 import pages.MainPage;
 
@@ -21,6 +22,7 @@ public class AppointmentsTests extends TestBase {
 
     final CompanyPage companyPage = new CompanyPage();
     final MainPage mainPage = new MainPage();
+    final BookingWidgetPage bookingWidgetPage = new BookingWidgetPage();
     TestsConfig config = ConfigFactory.create(TestsConfig.class);
 
 
@@ -36,8 +38,10 @@ public class AppointmentsTests extends TestBase {
 
         companyPage.openCompanyPage(config.getCompanyUrl())
                 .clickOnCreateAppointmentButton()
-                .switchToIframe()
-                .makeAppointmentToMaster()
+                .switchToIframe();
+
+
+        bookingWidgetPage.makeAppointmentToMaster()
                 .chooseMaster()
                 .chooseService()
                 .chooseTimeForAppointment()
