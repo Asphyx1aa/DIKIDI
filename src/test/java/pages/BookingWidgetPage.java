@@ -59,9 +59,9 @@ public class BookingWidgetPage {
         return this;
     }
 
-    @Step("Нажимаем на чекбокс'")
+    @Step("Подтверждаем запись'")
     public BookingWidgetPage completeAppointment() {
-        if(checkbox.exists()) {
+        if (checkbox.exists()) {
             checkbox.shouldBe(visible).click();
         }
         finishButtonSecond.shouldBe(visible).hover().click();
