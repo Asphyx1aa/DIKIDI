@@ -9,6 +9,9 @@ public interface TestsConfig extends Config {
     @Key("BASE_URL")
     String getBaseUrl();
 
+    @Key("BROWSER")
+    String getBrowser();
+
     @Key("USER_PHONE")
     String getUserPhone();
 

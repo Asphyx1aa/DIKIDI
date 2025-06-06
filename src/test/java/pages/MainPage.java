@@ -13,7 +13,8 @@ public class MainPage {
             userPasswordInput = $(".modal-content").$("[name='password']"),
             userProfileButton = $(".dropdown.user").$(".img-circle"),
             profileButton = $$(".dropdown-menu li").first(),
-    myAppointmentsButton = $(".dropdown-menu").$("a[href='https://test.dikidi.ru/ru/recording/']"),
+            myAppointmentsButton = $(".dropdown-menu").$("a[href='https://test.dikidi.ru/ru/recording/']"),
+
             agreementCheckBox = $("#agreement"),
             userAgeCheckBox = $("#age"),
             userEmailInput = $("input[name='repeat_email']"),
