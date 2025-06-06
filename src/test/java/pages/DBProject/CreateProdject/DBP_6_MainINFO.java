@@ -39,56 +39,56 @@ public class DBP_6_MainINFO {
     public DBP_6_MainINFO FIO(String FIOtext){
         FIO.setValue(FIOtext);
       return this;
-    };
+    }
 
     @Step("Выбор страны")
     public DBP_6_MainINFO COUNTRY(int indexcount){
         COUNTRYs.click();
         COUNTRYChoice(indexcount).click();
         return this;
-    };
+    }
 
     @Step("Указании улицы")
     public DBP_6_MainINFO Street(String Streettext){
         Street.setValue(Streettext);
         return this;
-    };
+    }
 
     @Step("Ввод названия дома")
     public DBP_6_MainINFO House(String Housetext){
         House.setValue(Housetext);
         return this;
-    };
+    }
 
     @Step("Ввод индекса")
     public DBP_6_MainINFO Indecs(String Indecstext){
         Indecs.setValue(Indecstext);
         return this;
-    };
+    }
 
     @Step("Ввод номера телефона")
     public DBP_6_MainINFO Phones(String Phonenumder){
         Phones.setValue(Phonenumder);
         return this;
-    };
+    }
 
     @Step("Ввод промокода")
     public DBP_6_MainINFO Promo_code(String Promo){
         Promo_code.setValue(Promo);
         return this;
-    };
+    }
 
     @Step("Кнопка Создать компанию")
     public DBP_6_MainINFO Create_company(){
         Create_company.click();
         return this;
-    };
+    }
 
     @Step("Согласие на условия")
     public DBP_6_MainINFO Consent_checkbox(){
         executeJavaScript("document.querySelector('label[for=\"conditions\"]').click();");
         return this;
-    };
+    }
 
 
 
