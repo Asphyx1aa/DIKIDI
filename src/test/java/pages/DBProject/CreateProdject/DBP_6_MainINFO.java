@@ -33,9 +33,7 @@ public class DBP_6_MainINFO {
         return $x(String.format("//li[@data-original-index='%d']",indexcount)).shouldBe(visible, Duration.ofSeconds(10));
     }
 
-//    private  final  SelenideElement COUNTRYChoice(int indexcount) {
-//        return $("//li[@data-original-index='" + indexcount +"']",indexcount)).shouldBe(visible, Duration.ofSeconds(10));
-//    }
+
 
     @Step("Введите название компании ")
     public DBP_6_MainINFO FIO(String FIOtext){
