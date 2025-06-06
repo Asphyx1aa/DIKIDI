@@ -15,7 +15,6 @@ public class RecordPage {
         return this;
     }
 
-
     @Step("Нажимаем на кнопку 'Отменить запись'")
     public RecordPage clickOnCancelAppointment() {
         cancelAppointmentButton.click();

@@ -83,6 +83,24 @@ public class AuthorizationTests extends TestBase {
             @Tag("web"),
             @Tag("authorization")
     })
+    @DisplayName("Попытка авторизации без ввода пароля")
+    void emptyPasswordTest() {
+        UserData user = UserData.fromConfig();
+
+        mainPage.openPage()
+                .removeCookieBanner()
+                .clickOnAuthButton()
+                .clickOnAuthNumber()
+                .setUserNumber(user.getUserNumber())
+                .checkThatAlertShowed();
+    }
+
+    @Test
+    @Severity(CRITICAL)
+    @Tags({
+            @Tag("web"),
+            @Tag("authorization")
+    })
     @DisplayName("Проверка работы функции 'Забыли пароль?'")
     void forgotPasswordTest() {
         UserData userData = UserData.fromConfig();
@@ -91,7 +109,7 @@ public class AuthorizationTests extends TestBase {
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
-                .fillAuthFormUserNumber(userData.getUserNumber())
+                .setUserNumber(userData.getUserNumber())
                 .clickOnForgotPass()
                 .verifyThatRecoveryPassModalAppear(); // Мб нужен какой-то статичный код
     }

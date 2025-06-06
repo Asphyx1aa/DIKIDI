@@ -81,3 +81,10 @@ task appointments_test(type: Test) {
         includeTags("appointment")
     }
 }
+
+task auth_tests(type: Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform {
+        includeTags("authorization", "registration")
+    }
+}

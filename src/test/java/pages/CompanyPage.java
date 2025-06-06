@@ -18,6 +18,12 @@ public class CompanyPage {
         return this;
     }
 
+    @Step("Убираем баннер о куки")
+    public CompanyPage removeCookieBanner() {
+        executeJavaScript("document.getElementById('cookie-consent').remove()");
+        return this;
+    }
+
     @Step("Кликаем на кнопку 'Записаться'")
     public CompanyPage clickOnCreateAppointmentButton() {
         makeAppointmentButton.click();

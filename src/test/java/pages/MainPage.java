@@ -13,8 +13,6 @@ public class MainPage {
             userPasswordInput = $(".modal-content").$("[name='password']"),
             userProfileButton = $(".dropdown.user").$(".img-circle"),
             profileButton = $$(".dropdown-menu li").first(),
-            myAppointmentsButton = $(".dropdown-menu").$("a[href='https://test.dikidi.ru/ru/recording/']"),
-
             agreementCheckBox = $("#agreement"),
             userAgeCheckBox = $("#age"),
             userEmailInput = $("input[name='repeat_email']"),
@@ -43,12 +41,6 @@ public class MainPage {
         return this;
     }
 
-    @Step("Кликаем по кнопке 'Мои записи'")
-    public MainPage clickOnMyAppointmentButton() {
-        myAppointmentsButton.click();
-        return this;
-    }
-
     @Step("Кликаем по кнопке авторизации через телефон'")
     public MainPage clickOnAuthNumber() {
         authByNumberButton.click();
@@ -57,14 +49,21 @@ public class MainPage {
 
     @Step("Заполняем форму авторизации")
     public MainPage fillAuthForm(String userNumber, String userPassword) {
-        userNumberInput.shouldBe(visible).setValue(userNumber);
-        userPasswordInput.shouldBe(visible).setValue(userPassword).pressEnter();
+        setUserNumber(userNumber);
+        setUserPassword(userPassword);
+        userPasswordInput.pressEnter();
         return this;
     }
 
-    @Step("Заполняем форму авторизации: Номер телефона")
-    public MainPage fillAuthFormUserNumber(String userNumber) {
+    @Step("Заполняем поле 'Номер телефона'")
+    public MainPage setUserNumber(String userNumber) {
         userNumberInput.shouldBe(visible).setValue(userNumber);
+        return this;
+    }
+
+    @Step("Заполняем поле 'Номер телефона'")
+    public MainPage setUserPassword(String userPassword) {
+        userPasswordInput.shouldBe(visible).setValue(userPassword);
         return this;
     }
 
@@ -79,8 +78,6 @@ public class MainPage {
         recoveryPassModal.shouldBe(visible);
         return this;
     }
-
-
 
     @Step("Заполняем форму регистрации")
     public MainPage fillRegistrationForm(String userNumber, String userName, String userEmail, String userPassword) {

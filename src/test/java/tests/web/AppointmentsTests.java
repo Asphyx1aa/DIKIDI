@@ -18,9 +18,9 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 @Feature("Запись")
 public class AppointmentsTests extends TestBase {
 
-    final RecordPage recordPage = new RecordPage();
-    final CompanyPage companyPage = new CompanyPage();
-    final BookingWidgetPage bookingWidgetPage = new BookingWidgetPage();
+    private final RecordPage recordPage = new RecordPage();
+    private final CompanyPage companyPage = new CompanyPage();
+    private final BookingWidgetPage bookingWidgetPage = new BookingWidgetPage();
 
     @WithLogin
     @Test
@@ -34,6 +34,7 @@ public class AppointmentsTests extends TestBase {
         final String companyUrl = config.getCompanyUrl();
 
         companyPage.openCompanyPage(companyUrl)
+                .removeCookieBanner()
                 .clickOnCreateAppointmentButton()
                 .switchToIframe();
 
@@ -57,6 +58,7 @@ public class AppointmentsTests extends TestBase {
         final String companyUrl = config.getCompanyUrl();
 
         companyPage.openCompanyPage(companyUrl)
+                .removeCookieBanner()
                 .clickOnCreateAppointmentButton()
                 .switchToIframe();
 

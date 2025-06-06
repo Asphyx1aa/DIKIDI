@@ -21,6 +21,4 @@ public class ProfilePage {
         userNameValue.shouldBe(visible).shouldHave(attribute("value", userName));
         return this;
     }
-
-
 }

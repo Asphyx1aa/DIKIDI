@@ -21,7 +21,7 @@ public class SearchTests extends TestBase {
             "Расчет рейтинга"
     })
     @Severity(CRITICAL)
-    @DisplayName("Поиск проекта по названию: {0}")
+    @DisplayName("Поиск проекта по названию")
     void searchDisplaysCorrectResultTest(String companyName) {
         mainPage.openPage()
                 .removeCookieBanner()
