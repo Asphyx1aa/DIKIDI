@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class BookingWidgetPage {
 
     final SelenideElement mastersButtonIframe = $(".nr-option.masters"),
+            serviceButtonIframe = $(".nr-option.multi"),
             master = $(".nr-item.sm-master"),
             continueButtonMaster = $(".nr-step.sm").$(".nr-continue"),
             continueButtonService = $(".nr-step.ssm").$(".nr-continue"),
@@ -22,7 +23,13 @@ public class BookingWidgetPage {
 
     @Step("Выбираем способ записи через Сотрудника")
     public BookingWidgetPage makeAppointmentToMaster() {
-        mastersButtonIframe.should(appear).click();
+        mastersButtonIframe.shouldBe(visible).click();
+        return this;
+    }
+
+    @Step("Выбираем способ записи через Услуги")
+    public BookingWidgetPage makeAppointmentService() {
+        serviceButtonIframe.shouldBe(visible).click();
         return this;
     }
 
@@ -54,7 +61,7 @@ public class BookingWidgetPage {
 
     @Step("Нажимаем на кнопку Продолжить на шаге 'Контактная информация'")
     public BookingWidgetPage clickOnContinueButton() {
-        sleep(3000);
+        sleep(3000); // Костыль, но другого работающего варианта пока не придумал
         finishButton.shouldBe(visible).should(exist).hover().click();
         return this;
     }

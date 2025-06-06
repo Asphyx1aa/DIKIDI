@@ -73,7 +73,7 @@ public class CreateProject extends TestBase {
                 .Create_company();
 
         Company.
-                CheckURL();
+                checkURL();
 
     }
 
