@@ -2,16 +2,14 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import pages.DBProject.CreateProdject.DBP_6_MainINFO;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CompanyPage {
 
-    final SelenideElement makeAppointmentButton = $(".booking").$("a[data-record='/ru/record/3554']"),
-            iframeForAppointment = $("iframe[src*='/ru/record/3554']"),
+    final SelenideElement makeAppointmentButton = $(".booking").$("a[data-record^='/ru/record/']"),
+            iframeForAppointment = $("iframe[src*='/ru/record/']"),
             CheckCreateCompany = $x("//h1[text()='Профиль']");
 
     @Step("Открываем профиль компании")
@@ -20,19 +18,17 @@ public class CompanyPage {
         return this;
     }
 
-    @Step("Кликаем на кнопку Записаться")
+    @Step("Кликаем на кнопку 'Записаться'")
     public CompanyPage clickOnCreateAppointmentButton() {
         makeAppointmentButton.click();
         return this;
     }
 
-    @Step("Переходим в iframe")
+    @Step("Переходим в iframe для записи")
     public CompanyPage switchToIframe() {
         switchTo().frame(iframeForAppointment);
         return this;
     }
-
-
 
     @Step("Проверка url Профиля компании")
     public CompanyPage CheckURL () {

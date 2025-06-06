@@ -40,7 +40,6 @@ public class AppointmentsTests extends TestBase {
                 .clickOnCreateAppointmentButton()
                 .switchToIframe();
 
-
         bookingWidgetPage.makeAppointmentToMaster()
                 .chooseMaster()
                 .chooseService()
