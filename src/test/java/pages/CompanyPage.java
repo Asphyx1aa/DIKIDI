@@ -10,14 +10,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CompanyPage {
 
-    final SelenideElement makeAppointmentButton = $(".booking").$("a[data-record='/ru/record/1684']"),
-            iframeForAppointment = $("iframe[style='opacity: 1;']"),
+    final SelenideElement makeAppointmentButton = $(".booking").$("a[data-record='/ru/record/3554']"),
+            iframeForAppointment = $("iframe[src*='/ru/record/3554']"),
             mastersButtonIframe = $(".nr-option.masters"),
             master = $(".nr-item.sm-master"),
             continueButtonMaster = $(".nr-step.sm").$(".nr-continue"),
             continueButtonService = $(".nr-step.ssm").$(".nr-continue"),
             finishButton = $(".nr-step.cf").$(".nr-continue"),
             reservationButton = $(".hour-list").$(".nr-time"),
+            secondTimeOption = $$(".time-list").first(),
             checkbox = $(".nr-step.ai").$("label[for='agreement2-2']"),
             finishButtonSecond = $(".nr-step.ai").$(".nr-continue.nr-shimmer"),
             service = $(".btn-selected"),
@@ -43,7 +44,7 @@ public class CompanyPage {
 
     @Step("Выбираем способ записи через Сотрудника")
     public CompanyPage makeAppointmentToMaster() {
-        mastersButtonIframe.click();
+        mastersButtonIframe.should(appear).click();
         return this;
     }
 
@@ -66,19 +67,26 @@ public class CompanyPage {
         reservationButton.should(exist).shouldBe(visible);
         reservationButton.hover().click();
 
+        if (secondTimeOption.exists()) {
+            secondTimeOption.shouldBe(visible).click();
+        }
+
         return this;
     }
 
     @Step("Нажимаем на кнопку Продолжить на шаге 'Контактная информация'")
     public CompanyPage clickOnContinueButton() {
+        sleep(3000);
         finishButton.shouldBe(visible).should(exist).hover().click();
         return this;
     }
 
     @Step("Нажимаем на чекбокс'")
     public CompanyPage completeAppointment() {
-        checkbox.shouldBe(visible).click();
-        finishButtonSecond.shouldBe(visible).click();
+        if(checkbox.exists()) {
+            checkbox.shouldBe(visible).click();
+        }
+        finishButtonSecond.shouldBe(visible).hover().click();
         return this;
     }
 
