@@ -1,10 +1,9 @@
 package data;
 
-import com.github.javafaker.Faker;
-import config.TestsConfig;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.aeonbits.owner.ConfigFactory;
+
+import static utils.FakerProvider.getFaker;
 
 @Getter
 @AllArgsConstructor
@@ -16,16 +15,15 @@ public class MasterData {
     private final String masterInfo;
     private final String masterEmail;
 
-    private static final Faker faker = new Faker();
 
     public static MasterData fakeMasterData() {
         return new MasterData(
-                faker.name().fullName(),
-                faker.name().fullName(),
-                "79" + faker.number().digits(9),
-                faker.job().position(),
-                faker.lorem().toString(),
-                faker.internet().emailAddress()
+                getFaker().name().firstName(),
+                getFaker().name().lastName(),
+                "79" + getFaker().number().digits(9),
+                getFaker().job().position(),
+                getFaker().lorem().toString(),
+                getFaker().internet().emailAddress()
         );
     }
 }

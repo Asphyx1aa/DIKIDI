@@ -1,10 +1,11 @@
 package data;
 
-import com.github.javafaker.Faker;
 import config.TestsConfig;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.aeonbits.owner.ConfigFactory;
+
+import static utils.FakerProvider.getFaker;
 
 @Getter
 @AllArgsConstructor
@@ -14,7 +15,6 @@ public class UserData {
     private final String userName;
     private final String userMail;
 
-    private static final Faker faker = new Faker();
 
     public static UserData fromConfig() {
         TestsConfig authData = ConfigFactory.create(TestsConfig.class);
@@ -29,10 +29,10 @@ public class UserData {
 
     public static UserData fakeUserData() {
         return new UserData(
-                "79" + faker.number().digits(9),
-                faker.internet().password(6, 10),
-                faker.name().fullName(),
-                faker.internet().emailAddress()
+                "79" + getFaker().number().digits(9),
+                getFaker().internet().password(6, 10),
+                getFaker().name().fullName(),
+                getFaker().internet().emailAddress()
         );
     }
 }

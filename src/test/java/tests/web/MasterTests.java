@@ -15,7 +15,7 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 
 @Owner("Разживин Даниил")
 @Feature("Сотрудники")
-public class CreateMasterTests extends TestBase {
+public class MasterTests extends TestBase {
 
     final MastersPage mastersPage = new MastersPage();
 
@@ -32,12 +32,12 @@ public class CreateMasterTests extends TestBase {
         String companyId = config.getCompanyId();
 
         mastersPage.openMastersPage(companyId)
-            .clickAddMaster()
-            .inputValueMaster(
-                    masterData.getMasterName(),
-                    masterData.getMasterSurname(),
-                    masterData.getMasterPost())
-            .clickSaveMaster()
+                .clickAddMaster()
+                .inputValueMaster(
+                        masterData.getMasterName(),
+                        masterData.getMasterSurname(),
+                        masterData.getMasterPost())
+                .clickSaveMaster()
                 .fillProfileMaster(
                         masterData.getMasterPhoneNumber(),
                         masterData.getMasterEmail(),
