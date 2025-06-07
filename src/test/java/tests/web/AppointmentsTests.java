@@ -77,7 +77,7 @@ public class AppointmentsTests extends TestBase {
             @Tag("appointment")
     })
     @DisplayName("Проверяем запись из каталога")
-    void createFromCatalog() {
+    void createAppointmentFromCatalogTest() {
         String companyId = config.getCompanyId();
 
         catalogPage.openPage()
