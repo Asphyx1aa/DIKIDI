@@ -54,10 +54,13 @@ public class AppointmentsTests extends TestBase {
             @Tag("web"),
             @Tag("appointment")
     })
+    @DisplayName("Проверяем, что запись к сотруднику работает корректно")
+    void successfulCreateAppointmentTest() {
     @DisplayName("Проверяем запись через услуги")
     void successfulCreateAppointmentFromServiceTest() {
         final String companyUrl = config.getCompanyUrl();
 
+        companyPage.openCompanyPage(config.getCompanyUrl())
         companyPage.openCompanyPage(companyUrl)
                 .removeCookieBanner()
                 .clickOnCreateAppointmentButton()
