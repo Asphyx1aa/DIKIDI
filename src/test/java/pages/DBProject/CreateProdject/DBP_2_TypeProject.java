@@ -15,9 +15,9 @@ public class DBP_2_TypeProject {
 
     //Тип
 
-    private final  SelenideElement  Company = $x("//div[text()='Компания']"),
+    private final SelenideElement Company = $x("//div[text()='Компания']"),
 
-    Specialist= $x("//div[text()='Работаю самостоятельно']");
+    Specialist = $x("//div[text()='Работаю самостоятельно']");
 
 
     @Step("Тип проекта - Компания")

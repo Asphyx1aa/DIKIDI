@@ -83,5 +83,5 @@ public class DBP_3_SphereActivities {
         Restaurants.click();
         return this;
     }
-    
+
 }

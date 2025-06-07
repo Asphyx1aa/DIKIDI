@@ -14,22 +14,22 @@ public class specialization_Game {
             Quest = $x("label[@for='recreation-43']");
 
 
-    public specialization_Game Game(){
+    public specialization_Game Game() {
         Game.click();
         return this;
     }
 
-    public specialization_Game Bouling(){
+    public specialization_Game Bouling() {
         Bouling.click();
         return this;
     }
 
-    public specialization_Game Kibersport(){
+    public specialization_Game Kibersport() {
         Kibersport.click();
         return this;
     }
 
-    public specialization_Game Quest(){
+    public specialization_Game Quest() {
         Quest.click();
         return this;
     }

@@ -37,7 +37,7 @@ public class CompanyPage {
     }
 
     @Step("Проверка url Профиля компании")
-    public CompanyPage checkURL () {
+    public CompanyPage checkURL() {
         CheckCreateCompany.shouldBe(visible);
         return this;
     }

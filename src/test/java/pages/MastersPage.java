@@ -19,7 +19,7 @@ public class MastersPage {
             categoryMasterDropdownMenu = $("body > div.bootbox.modal.fade.sw-dialog.master-create.in > div > div > div > div > form > div:nth-child(5) > div > div > ul > li:nth-child(2) > a"),
             addInfoMasterButton = $("body > div.bootbox.modal.fade.sw-dialog.master-create.in > div > div > div > div > form > div.form-group.sw.btns > button"),
 
-            numberPhoneMasterInput = $("#master-profile-21370-8144 > div.modal-sub-body.indent > div > div.content-fields.clearfix > div > div:nth-child(3) > div:nth-child(1) > div > div > table > tbody > tr > td:nth-child(3) > input[type=text]:nth-child(1)"),
+    numberPhoneMasterInput = $("#master-profile-21370-8144 > div.modal-sub-body.indent > div > div.content-fields.clearfix > div > div:nth-child(3) > div:nth-child(1) > div > div > table > tbody > tr > td:nth-child(3) > input[type=text]:nth-child(1)"),
             emailMasterInput = $("#master-profile-21370-8144 > div.modal-sub-body.indent > div > div.content-fields.clearfix > div > div:nth-child(3) > div:nth-child(2) > div > div > input"),
             infoMasterInput = $("#master-profile-21370-8144 > div.modal-sub-body.indent > div > div.content-fields.clearfix > div > div:nth-child(4) > div > div > textarea"),
             saveProfileMaster = $("#master-profile-21370-8144 > div.footer > div > div.cols.text-right > button");
@@ -33,7 +33,7 @@ public class MastersPage {
     }
 
     @Step("Кликаем на кнопку Добавить сотрудника, открытие модального окна")
-    public MastersPage clickAddMaster(){
+    public MastersPage clickAddMaster() {
         addMasterButton.shouldBe(visible).click();
         return this;
     }
@@ -42,7 +42,7 @@ public class MastersPage {
     public MastersPage inputValueMaster(
             String nameMaster,
             String surnameMaster,
-            String postMaster){
+            String postMaster) {
         nameMasterInput.setValue(nameMaster);
         surnameMasterInput.setValue(surnameMaster);
         postMasterInput.setValue(postMaster);
@@ -52,13 +52,13 @@ public class MastersPage {
     }
 
     @Step("Сохраняем информацию о сотруднике")
-    public MastersPage clickSaveMaster(){
+    public MastersPage clickSaveMaster() {
         addInfoMasterButton.shouldBe(visible).click();
         return this;
     }
 
     @Step("Добавление информации сотруднику")
-    public MastersPage fillProfileMaster(String phone, String email, String info){
+    public MastersPage fillProfileMaster(String phone, String email, String info) {
         numberPhoneMasterInput.setValue(phone);
         emailMasterInput.setValue(email);
         infoMasterInput.setValue(info);

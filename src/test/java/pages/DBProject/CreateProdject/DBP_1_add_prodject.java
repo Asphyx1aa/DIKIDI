@@ -20,8 +20,6 @@ public class DBP_1_add_prodject {
     AccessProject = $x("//div[@class='list-item add-access']");
 
 
-
-
     @Step("Начала создания проекта - Создать новый проект")
     public DBP_1_add_prodject CreateNewProdject() {
         CreateNesw.click();

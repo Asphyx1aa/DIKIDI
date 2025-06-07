@@ -13,22 +13,22 @@ public class DBP_main {
     private final SelenideElement CreateNew = $x("//button[@class='new-elements-button blue create-promotions']"),
 
     BACK = $x("//button[@class='action-btn new-elements-button-outline blue back']"),
-    Continue = $x("//button[@class='action-btn new-elements-button blue next']");
+            Continue = $x("//button[@class='action-btn new-elements-button blue next']");
 
     @Step("Начала создания проекта - Добавить новый")
-    public DBP_main STARTcreate(){
+    public DBP_main STARTcreate() {
         CreateNew.click();
         return this;
     }
 
     @Step("Открытие страницы business/project")
-    public DBP_main Open(){
+    public DBP_main Open() {
         open(FULLURL);
         return this;
     }
 
     @Step("Продолжить в форме создания")
-    public DBP_main Continues(){
+    public DBP_main Continues() {
         Continue.click();
         return this;
     }

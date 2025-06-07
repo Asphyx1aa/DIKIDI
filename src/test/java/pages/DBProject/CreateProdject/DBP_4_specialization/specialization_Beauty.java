@@ -19,59 +19,57 @@ public class specialization_Beauty {
             BeautyMassage = $x("//label[@for='beauty-19']");
 
 
-
-
-    public specialization_Beauty Usy_boroda(){
+    public specialization_Beauty Usy_boroda() {
         Usy_boroda.click();
         return this;
     }
 
-    public specialization_Beauty Depilation_epilation(){
+    public specialization_Beauty Depilation_epilation() {
         Depilation_epilation.click();
         return this;
     }
 
-    public specialization_Beauty Barberchop(){
+    public specialization_Beauty Barberchop() {
         Barberchop.click();
         return this;
     }
 
-    public specialization_Beauty Kosmetologiya_ukhod(){
+    public specialization_Beauty Kosmetologiya_ukhod() {
         Kosmetologiya_ukhod.click();
         return this;
     }
 
-    public specialization_Beauty Hairdressing_services(){
+    public specialization_Beauty Hairdressing_services() {
         Hairdressing_services.click();
         return this;
     }
 
-    public specialization_Beauty Permanent_tattoo(){
+    public specialization_Beauty Permanent_tattoo() {
         Permanent_tattoo.click();
         return this;
     }
 
-    public specialization_Beauty Resnitsy(){
+    public specialization_Beauty Resnitsy() {
         Resnitsy.click();
         return this;
     }
 
-    public specialization_Beauty Brovi(){
+    public specialization_Beauty Brovi() {
         Brovi.click();
         return this;
     }
 
-    public specialization_Beauty Vizazh(){
+    public specialization_Beauty Vizazh() {
         Vizazh.click();
         return this;
     }
 
-    public specialization_Beauty Nogtevoy_servis(){
+    public specialization_Beauty Nogtevoy_servis() {
         Nogtevoy_servis.click();
         return this;
     }
 
-    public specialization_Beauty Massage(){
+    public specialization_Beauty Massage() {
         BeautyMassage.click();
         return this;
     }

@@ -18,7 +18,7 @@ public class DBP_6_MainINFO {
             //Основная информация
             FIO = $x("//input[@placeholder='Введите название компании']"),
             COUNTRYs = $x("//span[@class='filter-option pull-left']"),
-    City = $x("//input[@class='form-control input-city filled']"),
+            City = $x("//input[@class='form-control input-city filled']"),
             Street = $x("//input[@name='street']"),
             House = $x("//input[@name='house']"),
             Indecs = $x("//input[@name='zipcode']"),
@@ -29,67 +29,65 @@ public class DBP_6_MainINFO {
             Privacy_policies = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/224-politika-konfidentsialnosti']"),
             Create_company = $x("//button[@class='action-btn new-elements-button blue success']");
 
-    private  final  SelenideElement COUNTRYChoice(int indexcount) {
-        return $x(String.format("//li[@data-original-index='%d']",indexcount)).shouldBe(visible, Duration.ofSeconds(10));
+    private final SelenideElement COUNTRYChoice(int indexcount) {
+        return $x(String.format("//li[@data-original-index='%d']", indexcount)).shouldBe(visible, Duration.ofSeconds(10));
     }
-
 
 
     @Step("Введите название компании ")
-    public DBP_6_MainINFO FIO(String FIOtext){
+    public DBP_6_MainINFO FIO(String FIOtext) {
         FIO.setValue(FIOtext);
-      return this;
+        return this;
     }
 
     @Step("Выбор страны")
-    public DBP_6_MainINFO COUNTRY(int indexcount){
+    public DBP_6_MainINFO COUNTRY(int indexcount) {
         COUNTRYs.click();
         COUNTRYChoice(indexcount).click();
         return this;
     }
 
     @Step("Указании улицы")
-    public DBP_6_MainINFO Street(String Streettext){
+    public DBP_6_MainINFO Street(String Streettext) {
         Street.setValue(Streettext);
         return this;
     }
 
     @Step("Ввод названия дома")
-    public DBP_6_MainINFO House(String Housetext){
+    public DBP_6_MainINFO House(String Housetext) {
         House.setValue(Housetext);
         return this;
     }
 
     @Step("Ввод индекса")
-    public DBP_6_MainINFO Indecs(String Indecstext){
+    public DBP_6_MainINFO Indecs(String Indecstext) {
         Indecs.setValue(Indecstext);
         return this;
     }
 
     @Step("Ввод номера телефона")
-    public DBP_6_MainINFO Phones(String Phonenumder){
+    public DBP_6_MainINFO Phones(String Phonenumder) {
         Phones.setValue(Phonenumder);
         return this;
     }
 
     @Step("Ввод промокода")
-    public DBP_6_MainINFO Promo_code(String Promo){
+    public DBP_6_MainINFO Promo_code(String Promo) {
         Promo_code.setValue(Promo);
         return this;
     }
 
     @Step("Кнопка Создать компанию")
-    public DBP_6_MainINFO Create_company(){
+    public DBP_6_MainINFO Create_company() {
         Create_company.click();
         return this;
     }
 
     @Step("Согласие на условия")
-    public DBP_6_MainINFO Consent_checkbox(){
+    public DBP_6_MainINFO Consent_checkbox() {
         executeJavaScript("document.querySelector('label[for=\"conditions\"]').click();");
         return this;
     }
-
 
 
 }

@@ -13,31 +13,30 @@ public class specialization_Education {
             Driving_school = $x("label[@for='recreation-48']"),
             Kursy = $x("label[@for='education-50']");
 
-    public specialization_Education Education(){
+    public specialization_Education Education() {
         Education.click();
         return this;
     }
 
-    public specialization_Education Repetitor(){
+    public specialization_Education Repetitor() {
         Repetitor.click();
         return this;
     }
 
-    public specialization_Education Language_school(){
+    public specialization_Education Language_school() {
         Language_school.click();
         return this;
     }
 
-    public specialization_Education Driving_school(){
+    public specialization_Education Driving_school() {
         Driving_school.click();
         return this;
     }
 
-    public specialization_Education Kursy(){
+    public specialization_Education Kursy() {
         Kursy.click();
         return this;
     }
-
 
 
 }

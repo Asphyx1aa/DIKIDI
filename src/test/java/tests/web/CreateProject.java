@@ -35,7 +35,7 @@ public class CreateProject extends TestBase {
 
         DBP_main MP = new DBP_main();
         DBP_1_add_prodject ADDProject = new DBP_1_add_prodject();
-        DBP_2_TypeProject  TypeProject = new DBP_2_TypeProject();
+        DBP_2_TypeProject TypeProject = new DBP_2_TypeProject();
         DBP_3_SphereActivities Sphere = new DBP_3_SphereActivities();
         specialization_Servise Servise = new specialization_Servise();
         DBP_5_AboutYourBusiness AYB = new DBP_5_AboutYourBusiness();
@@ -78,4 +78,4 @@ public class CreateProject extends TestBase {
     }
 
 
-    }
+}

@@ -13,32 +13,32 @@ public class specialization_Healing {
             Analyzes = $x("//label['@for='health-32']"),
             SPA = $x("//label['@for='health-21']");
 
-    public specialization_Healing Healing(){
+    public specialization_Healing Healing() {
         Healing.click();
         return this;
     }
 
-    public specialization_Healing Dentistry(){
+    public specialization_Healing Dentistry() {
         Dentistry.click();
         return this;
     }
 
-    public specialization_Healing Sauna(){
+    public specialization_Healing Sauna() {
         Sauna.click();
         return this;
     }
 
-    public specialization_Healing Medicine(){
+    public specialization_Healing Medicine() {
         Medicine.click();
         return this;
     }
 
-    public specialization_Healing Analyzes(){
+    public specialization_Healing Analyzes() {
         Analyzes.click();
         return this;
     }
 
-    public specialization_Healing SPA(){
+    public specialization_Healing SPA() {
         SPA.click();
         return this;
     }

@@ -1,6 +1,8 @@
 package tests.web;
 
 import annotations.WithLogin;
+import api.AppointmentSteps;
+import api.AuthSteps;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -17,10 +19,13 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Feature("Запись")
 public class AppointmentsTests extends TestBase {
 
+    private final AuthSteps authSteps = new AuthSteps();
     private final RecordPage recordPage = new RecordPage();
     private final CompanyPage companyPage = new CompanyPage();
     private final BookingWidgetPage bookingWidgetPage = new BookingWidgetPage();
     private final CatalogPage catalogPage = new CatalogPage();
+
+    private final AppointmentSteps appointmentSteps = new AppointmentSteps();
 
     @WithLogin
     @Test
@@ -44,6 +49,10 @@ public class AppointmentsTests extends TestBase {
                 .chooseTimeForAppointment()
                 .clickOnContinueButton()
                 .completeAppointment();
+
+        String token = authSteps.getUserToken(config.getUserPhone(), config.getUserPassword());
+
+        appointmentSteps.getAppointmentsOfUser(token);
     }
 
     @WithLogin

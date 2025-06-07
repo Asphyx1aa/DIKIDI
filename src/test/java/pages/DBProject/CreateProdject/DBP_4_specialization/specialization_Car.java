@@ -13,19 +13,22 @@ public class specialization_Car {
             Shinomontazh = $x("label[@for='auto-37']"),
             Avtomoyka = $x("label[@for='auto-39']");
 
-    public specialization_Car Avtoservis(){
+    public specialization_Car Avtoservis() {
         Avtoservis.click();
         return this;
     }
-    public specialization_Car Tekhosmotr(){
+
+    public specialization_Car Tekhosmotr() {
         Tekhosmotr.click();
         return this;
     }
-    public specialization_Car Shinomontazh(){
+
+    public specialization_Car Shinomontazh() {
         Shinomontazh.click();
         return this;
     }
-    public specialization_Car Avtomoyka(){
+
+    public specialization_Car Avtomoyka() {
         Avtomoyka.click();
         return this;
     }

@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class RecordPage {
     final SelenideElement cancelAppointmentButton = $("a[data-remove^='/ajax/record/remove']"),
-    confirmCancellationButton = $("button.btn.btn-primary");
+            confirmCancellationButton = $("button.btn.btn-primary");
 
     @Step("Открываем страницу 'Мои записи'")
     public RecordPage openPage() {
