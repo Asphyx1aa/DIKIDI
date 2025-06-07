@@ -1,12 +1,10 @@
 package tests.web;
 
 import annotations.WithLogin;
-import config.TestsConfig;
 import data.MasterData;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -20,8 +18,6 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 public class CreateMasterTests extends TestBase {
 
     final MastersPage mastersPage = new MastersPage();
-    TestsConfig config = ConfigFactory.create(TestsConfig.class);
-
 
     @WithLogin
     @Test
@@ -33,7 +29,9 @@ public class CreateMasterTests extends TestBase {
     @DisplayName("Создание сотрудника")
     void successfulCreateMasterTest() {
         MasterData masterData = MasterData.fakeMasterData();
-        mastersPage.OpenMastersPage(config.getCompanyUrl())
+        String companyId = config.getCompanyId();
+
+        mastersPage.OpenMastersPage(companyId)
             .ClickAddMaster()
             .InputValueMaster(
                     masterData.getMasterName(),

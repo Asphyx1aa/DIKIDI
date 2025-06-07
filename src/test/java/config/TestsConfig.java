@@ -26,4 +26,7 @@ public interface TestsConfig extends Config {
 
     @Key("COMPANY_URL")
     String getCompanyUrl();
+
+    @Key("COMPANY_ID")
+    String getCompanyId();
 }

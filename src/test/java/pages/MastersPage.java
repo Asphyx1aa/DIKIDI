@@ -28,7 +28,7 @@ public class MastersPage {
 
     @Step("Открываем профиль компании")
     public MastersPage OpenMastersPage(String companyId) {
-        open("/ru/owner/masters/?company=1684");
+        open("/ru/owner/masters/?company=" + companyId);
         return this;
     }
 
