@@ -31,14 +31,14 @@ public class CreateMasterTests extends TestBase {
         MasterData masterData = MasterData.fakeMasterData();
         String companyId = config.getCompanyId();
 
-        mastersPage.OpenMastersPage(companyId)
-            .ClickAddMaster()
-            .InputValueMaster(
+        mastersPage.openMastersPage(companyId)
+            .clickAddMaster()
+            .inputValueMaster(
                     masterData.getMasterName(),
                     masterData.getMasterSurname(),
                     masterData.getMasterPost())
-            .ClickSaveMaster()
-                .FillProfileMaster(
+            .clickSaveMaster()
+                .fillProfileMaster(
                         masterData.getMasterPhoneNumber(),
                         masterData.getMasterEmail(),
                         masterData.getMasterInfo());

@@ -27,19 +27,19 @@ public class MastersPage {
     MasterData masterData = MasterData.fakeMasterData();
 
     @Step("Открываем профиль компании")
-    public MastersPage OpenMastersPage(String companyId) {
+    public MastersPage openMastersPage(String companyId) {
         open("/ru/owner/masters/?company=" + companyId);
         return this;
     }
 
     @Step("Кликаем на кнопку Добавить сотрудника, открытие модального окна")
-    public MastersPage ClickAddMaster(){
+    public MastersPage clickAddMaster(){
         addMasterButton.shouldBe(visible).click();
         return this;
     }
 
     @Step("Кликаем на кнопку Добавить сотрудника, открытие модального окна")
-    public MastersPage InputValueMaster(
+    public MastersPage inputValueMaster(
             String nameMaster,
             String surnameMaster,
             String postMaster){
@@ -52,13 +52,13 @@ public class MastersPage {
     }
 
     @Step("Сохраняем информацию о сотруднике")
-    public MastersPage ClickSaveMaster(){
+    public MastersPage clickSaveMaster(){
         addInfoMasterButton.shouldBe(visible).click();
         return this;
     }
 
     @Step("Добавление информации сотруднику")
-    public MastersPage FillProfileMaster(String phone, String email, String info){
+    public MastersPage fillProfileMaster(String phone, String email, String info){
         numberPhoneMasterInput.setValue(phone);
         emailMasterInput.setValue(email);
         infoMasterInput.setValue(info);
