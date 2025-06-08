@@ -6,10 +6,7 @@ import api.AuthSteps;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import pages.*;
 
 import static io.qameta.allure.SeverityLevel.BLOCKER;
@@ -17,7 +14,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 @Owner("Тимур Власов")
 @Feature("Запись")
-public class AppointmentsTests extends TestBase {
+public class AppointmentTests extends TestBase {
 
     private final AuthSteps authSteps = new AuthSteps();
     private final RecordPage recordPage = new RecordPage();
@@ -48,9 +45,10 @@ public class AppointmentsTests extends TestBase {
                 .chooseService()
                 .chooseTimeForAppointment()
                 .clickOnContinueButton()
-                .completeAppointment();
+                .completeAppointment()
+                .checkBookingSuccessMessage();
 
-        String token = authSteps.getUserToken(config.getUserPhone(), config.getUserPassword());
+        String token = authSteps.getUserToken(config.getUserPhone(), config.getUserPassword()); // Подумать как убрать дублирующее получение токена
 
         appointmentSteps.getAppointmentsOfUser(token);
     }
@@ -75,7 +73,8 @@ public class AppointmentsTests extends TestBase {
                 .chooseService()
                 .chooseTimeForAppointment()
                 .clickOnContinueButton()
-                .completeAppointment();
+                .completeAppointment()
+                .checkBookingSuccessMessage();
     }
 
     @WithLogin
@@ -98,7 +97,8 @@ public class AppointmentsTests extends TestBase {
                 .chooseService()
                 .chooseTimeForAppointment()
                 .clickOnContinueButton()
-                .completeAppointment();
+                .completeAppointment()
+                .checkBookingSuccessMessage();
     }
 
     @WithLogin

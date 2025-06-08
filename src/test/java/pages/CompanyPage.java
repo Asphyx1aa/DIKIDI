@@ -32,6 +32,7 @@ public class CompanyPage {
 
     @Step("Переходим в iframe для записи")
     public CompanyPage switchToIframe() {
+        removeCookieBanner();
         switchTo().frame(iframeForAppointment);
         return this;
     }

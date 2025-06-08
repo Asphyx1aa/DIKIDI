@@ -9,7 +9,13 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class BookingWidgetPage {
 
-    final SelenideElement mastersButtonIframe = $(".nr-option.masters"),
+    final SelenideElement firstBookingStep = $(".nr-step.po"),
+            serviceBookingStep = $(".nr-step.ssm"),
+            masterBookingStep = $(".nr-step.sm"),
+            contactInformationStep = $(".nr-step.cf"),
+            timeReservationStep = $(".nr-step.sdt"),
+            completeBookingStep = $(".nr-step.ai"),
+            mastersButtonIframe = $(".nr-option.masters"),
             serviceButtonIframe = $(".nr-option.multi"),
             master = $(".nr-item.sm-master"),
             continueButtonMaster = $(".nr-step.sm").$(".nr-continue"),
@@ -19,10 +25,12 @@ public class BookingWidgetPage {
             secondTimeOption = $$(".time-list").first(),
             checkbox = $(".nr-step.ai").$("label[for='agreement2-2']"),
             finishButtonSecond = $(".nr-step.ai").$(".nr-continue.nr-shimmer"),
-            service = $(".btn-selected");
+            service = $(".btn-selected"),
+            successBookingStep = $(".nr-step.final");
 
     @Step("Выбираем способ записи через Сотрудника")
     public BookingWidgetPage makeAppointmentToMaster() {
+        firstBookingStep.shouldBe(visible);
         mastersButtonIframe.shouldBe(visible).click();
         return this;
     }
@@ -35,6 +43,7 @@ public class BookingWidgetPage {
 
     @Step("Выбираем сотрудника и переходим на следующий шаг")
     public BookingWidgetPage chooseMaster() {
+        masterBookingStep.shouldBe(visible);
         master.shouldBe(visible).click();
         continueButtonMaster.shouldBe(visible).hover().click();
         return this;
@@ -42,6 +51,7 @@ public class BookingWidgetPage {
 
     @Step("Выбираем услугу и переходим на следующий шаг")
     public BookingWidgetPage chooseService() {
+        serviceBookingStep.shouldBe(visible);
         service.shouldBe(visible).click();
         continueButtonService.shouldBe(visible).hover().click();
         return this;
@@ -49,6 +59,7 @@ public class BookingWidgetPage {
 
     @Step("Выбираем время для записи")
     public BookingWidgetPage chooseTimeForAppointment() {
+        timeReservationStep.shouldBe(visible);
         reservationButton.should(exist).shouldBe(visible);
         reservationButton.hover().click();
 
@@ -61,17 +72,25 @@ public class BookingWidgetPage {
 
     @Step("Нажимаем на кнопку Продолжить на шаге 'Контактная информация'")
     public BookingWidgetPage clickOnContinueButton() {
-        sleep(3000); // Костыль, но другого работающего варианта пока не придумал
+        contactInformationStep.shouldBe(visible);
         finishButton.shouldBe(visible).should(exist).hover().click();
         return this;
     }
 
     @Step("Подтверждаем запись'")
     public BookingWidgetPage completeAppointment() {
-        if (checkbox.exists()) {
-            checkbox.shouldBe(visible).click();
+        completeBookingStep.shouldBe(visible);
+
+        if (checkbox.is(visible)) {
+            checkbox.click();
         }
         finishButtonSecond.shouldBe(visible).hover().click();
+        return this;
+    }
+
+    @Step("Проверяем, что запись создалась успешно. Появилось сообщение")
+    public BookingWidgetPage checkBookingSuccessMessage() {
+        successBookingStep.shouldBe(visible);
         return this;
     }
 }
