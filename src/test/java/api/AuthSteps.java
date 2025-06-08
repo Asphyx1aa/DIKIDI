@@ -2,7 +2,6 @@ package api;
 
 import io.qameta.allure.Step;
 import models.AuthRequest;
-import models.AuthResponse;
 
 import static io.restassured.RestAssured.given;
 

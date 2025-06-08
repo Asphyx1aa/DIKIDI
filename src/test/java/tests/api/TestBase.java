@@ -6,6 +6,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import config.TestsConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import io.restassured.RestAssured;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,4 +14,9 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
     final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
+
+    @BeforeAll
+    static void testSetup() {
+        RestAssured.baseURI = "https://test.dikidi.ru/api";
+    }
 }

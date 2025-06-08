@@ -36,7 +36,6 @@ public class AppointmentTests extends TestBase {
         final String companyUrl = config.getCompanyUrl();
 
         companyPage.openCompanyPage(companyUrl)
-                .removeCookieBanner()
                 .clickOnCreateAppointmentButton()
                 .switchToIframe();
 
@@ -50,7 +49,8 @@ public class AppointmentTests extends TestBase {
 
         String token = authSteps.getUserToken(config.getUserPhone(), config.getUserPassword()); // Подумать как убрать дублирующее получение токена
 
-        appointmentSteps.getAppointmentsOfUser(token);
+       String bookingId = appointmentSteps.getAppointmentsOfUser(token);
+        appointmentSteps.cancelBooking(token, bookingId);
     }
 
     @WithLogin
