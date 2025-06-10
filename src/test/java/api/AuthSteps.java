@@ -45,18 +45,4 @@ public class AuthSteps {
                 .extract()
                 .response();
     }
-
-    @Step("Получаем куки для авторизации")
-    public static Cookie getTokenCookie(String userNumber, String password) {
-        Response response = getAuthorizationResponse(userNumber, password);
-        Cookie tokenCookie = response.getDetailedCookie("token");
-
-        System.out.println(tokenCookie);
-
-        if (tokenCookie != null) {
-            return tokenCookie;
-        }
-
-        throw new RuntimeException("Куки не получена");
-    }
 }

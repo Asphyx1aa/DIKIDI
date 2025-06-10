@@ -3,7 +3,6 @@ package tests.web;
 import annotations.WithLogin;
 import api.AppointmentSteps;
 import api.AuthSteps;
-import context.AuthContext;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -18,7 +17,6 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Feature("Запись")
 public class AppointmentTests extends TestBase {
 
-    private final AuthSteps authSteps = new AuthSteps();
     private final RecordPage recordPage = new RecordPage();
     private final CompanyPage companyPage = new CompanyPage();
     private final BookingWidgetPage bookingWidgetPage = new BookingWidgetPage();
@@ -54,63 +52,61 @@ public class AppointmentTests extends TestBase {
         appointmentSteps.cancelBooking(token, bookingId);
     }
 
-//    @WithLogin
-//    @Test
-//    @Severity(BLOCKER)
-//    @Tags({
-//            @Tag("web"),
-//            @Tag("appointment")
-//    })
-//    @DisplayName("Проверяем запись через услуги")
-//    void successfulCreateAppointmentFromServiceTest() {
-//        final String companyUrl = config.getCompanyUrl();
-//
-//        companyPage.openCompanyPage(companyUrl)
-//                .removeCookieBanner()
-//                .clickOnCreateAppointmentButton()
-//                .switchToIframe();
-//
-//        bookingWidgetPage.makeAppointmentService()
-//                .chooseService()
-//                .chooseTimeForAppointment()
-//                .clickOnContinueButton()
-//                .completeAppointment()
-//                .checkBookingSuccessMessage();
-//
-//        String token = authSteps.getUserToken(config.getUserPhone(), config.getUserPassword()); // Подумать как убрать дублирующее получение токена
-//
-//        String bookingId = appointmentSteps.getAppointmentsOfUser(token);
-//        appointmentSteps.cancelBooking(token, bookingId);
-//    }
+    @WithLogin
+    @Test
+    @Severity(BLOCKER)
+    @Tags({
+            @Tag("web"),
+            @Tag("appointment")
+    })
+    @DisplayName("Проверяем запись через услуги")
+    void successfulCreateAppointmentFromServiceTest() {
+        String token = getAuthResponse().path("data.token");
+        final String companyUrl = config.getCompanyUrl();
 
-//    @WithLogin
-//    @Test
-//    @Severity(BLOCKER)
-//    @Tags({
-//            @Tag("web"),
-//            @Tag("appointment")
-//    })
-//    @DisplayName("Проверяем запись из каталога")
-//    void createAppointmentFromCatalogTest() {
-//        String companyId = config.getCompanyId();
-//
-//        catalogPage.openPage()
-//                .clickOnBookingButton(companyId)
-//                .switchToIframe();
-//
-//        bookingWidgetPage.makeAppointmentToMaster()
-//                .chooseMaster()
-//                .chooseService()
-//                .chooseTimeForAppointment()
-//                .clickOnContinueButton()
-//                .completeAppointment()
-//                .checkBookingSuccessMessage();
-//
-//        String token = authSteps.getUserToken(config.getUserPhone(), config.getUserPassword()); // Подумать как убрать дублирующее получение токена
-//
-//        String bookingId = appointmentSteps.getAppointmentsOfUser(token);
-//        appointmentSteps.cancelBooking(token, bookingId);
-//    }
+        companyPage.openCompanyPage(companyUrl)
+                .removeCookieBanner()
+                .clickOnCreateAppointmentButton()
+                .switchToIframe();
+
+        bookingWidgetPage.makeAppointmentService()
+                .chooseService()
+                .chooseTimeForAppointment()
+                .clickOnContinueButton()
+                .completeAppointment()
+                .checkBookingSuccessMessage();
+
+        String bookingId = appointmentSteps.getAppointmentsOfUser(token);
+        appointmentSteps.cancelBooking(token, bookingId);
+    }
+
+    @WithLogin
+    @Test
+    @Severity(BLOCKER)
+    @Tags({
+            @Tag("web"),
+            @Tag("appointment")
+    })
+    @DisplayName("Проверяем запись из каталога")
+    void createAppointmentFromCatalogTest() {
+        String token = getAuthResponse().path("data.token");
+        String companyId = config.getCompanyId();
+
+        catalogPage.openPage()
+                .clickOnBookingButton(companyId)
+                .switchToIframe();
+
+        bookingWidgetPage.makeAppointmentToMaster()
+                .chooseMaster()
+                .chooseService()
+                .chooseTimeForAppointment()
+                .clickOnContinueButton()
+                .completeAppointment()
+                .checkBookingSuccessMessage();
+
+        String bookingId = appointmentSteps.getAppointmentsOfUser(token);
+        appointmentSteps.cancelBooking(token, bookingId);
+    }
 
     @WithLogin
     @Test
