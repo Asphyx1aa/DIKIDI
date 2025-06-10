@@ -1,13 +1,15 @@
 package extensions;
 
 import data.UserData;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.Cookie;
 
+import static api.AuthSteps.getUserAuth;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static models.AuthResponse.getTokenCookie;
+import static context.AuthContext.setAuthResponse;
 
 public class LoginExtension implements BeforeEachCallback {
 
@@ -17,16 +19,19 @@ public class LoginExtension implements BeforeEachCallback {
         final String userNumber = UserData.fromConfig().getUserNumber();
         final String userPassword = UserData.fromConfig().getUserPassword();
 
-        io.restassured.http.Cookie restAssuredCookie = getTokenCookie(userNumber, userPassword);
+        Response authResponse = getUserAuth(userNumber, userPassword);
+        String cookieToken = authResponse.getCookie("token");
+
+        setAuthResponse(authResponse);
 
         open("/favicon.ico");
 
         // Преобразуем в Selenium Cookie
-        Cookie seleniumCookie = new Cookie.Builder(restAssuredCookie.getName(), restAssuredCookie.getValue())
+        Cookie seleniumCookie = new Cookie.Builder("token", cookieToken)
                 .domain("test.dikidi.ru")
                 .path("/")
-                .isHttpOnly(restAssuredCookie.isHttpOnly())
-                .isSecure(restAssuredCookie.isSecured())
+                .isHttpOnly(true)
+                .isSecure(true)
                 .build();
 
         getWebDriver().manage().addCookie(seleniumCookie);

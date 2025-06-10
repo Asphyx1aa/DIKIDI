@@ -25,19 +25,19 @@ public class DBP_6_MainINFO {
             Indecs = $x("//input[@name='zipcode']"),
             Cod_COUNTRY_Phone = $x("//div[@class='selected-flag']"),
 
-            Phones = $x("/html/body/div[3]/div/div/div/div/form/div[7]/div[2]/div[2]/div[6]/div/table/tbody/tr/td[3]/input[1]"),
+    Phones = $x("/html/body/div[3]/div/div/div/div/form/div[7]/div[2]/div[2]/div[6]/div/table/tbody/tr/td[3]/input[1]"),
             Promo_code = $x("//input[@name='promo']"),
             Consent_checkbox = $("#conditions"),// JS  касыль
             User_agreement = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/202-polzovatelskoe-soglashenie']"),
             Privacy_policies = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/224-politika-konfidentsialnosti']"),
             Create_company = $x("//button[@class='action-btn new-elements-button blue success']");
 
-    private  SelenideElement COUNTRYChoice(int indexcount) {
+    private SelenideElement COUNTRYChoice(int indexcount) {
         return $x(String.format("//li[@data-original-index='%d']", indexcount)).shouldBe(visible, Duration.ofSeconds(10));
     }
 
 
-    private  SelenideElement Phonecountrycodename(int code_country) {
+    private SelenideElement Phonecountrycodename(int code_country) {
         return $x(String.format("//li[@data-code='%d']", code_country)).shouldBe(visible, Duration.ofSeconds(10));
     }
 
