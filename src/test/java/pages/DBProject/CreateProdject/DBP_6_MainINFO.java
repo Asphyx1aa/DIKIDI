@@ -9,6 +9,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static org.openqa.selenium.devtools.v133.debugger.Debugger.pause;
 
 @Owner("Никулин Дима")
 @Feature("Создание проекта")
@@ -18,21 +19,27 @@ public class DBP_6_MainINFO {
             //Основная информация
             FIO = $x("//input[@placeholder='Введите название компании']"),
             COUNTRYs = $x("//span[@class='filter-option pull-left']"),
-            City = $x("//input[@class='form-control input-city filled']"),
+            City = $x("//input[@class='input-search']"),
             Street = $x("//input[@name='street']"),
             House = $x("//input[@name='house']"),
             Indecs = $x("//input[@name='zipcode']"),
-            Phones = $x("//input[@name='phone']"),
+            Cod_COUNTRY_Phone = $x("//div[@class='selected-flag']"),
+
+            Phones = $x("/html/body/div[3]/div/div/div/div/form/div[7]/div[2]/div[2]/div[6]/div/table/tbody/tr/td[3]/input[1]"),
             Promo_code = $x("//input[@name='promo']"),
             Consent_checkbox = $("#conditions"),// JS  касыль
             User_agreement = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/202-polzovatelskoe-soglashenie']"),
             Privacy_policies = $x("//a[@href='https://support.dikidi.app/ru/knowledge-bases/4/articles/224-politika-konfidentsialnosti']"),
             Create_company = $x("//button[@class='action-btn new-elements-button blue success']");
 
-    private final SelenideElement COUNTRYChoice(int indexcount) {
+    private  SelenideElement COUNTRYChoice(int indexcount) {
         return $x(String.format("//li[@data-original-index='%d']", indexcount)).shouldBe(visible, Duration.ofSeconds(10));
     }
 
+
+    private  SelenideElement Phonecountrycodename(int code_country) {
+        return $x(String.format("//li[@data-code='%d']", code_country)).shouldBe(visible, Duration.ofSeconds(10));
+    }
 
     @Step("Введите название компании ")
     public DBP_6_MainINFO FIO(String FIOtext) {
@@ -44,6 +51,13 @@ public class DBP_6_MainINFO {
     public DBP_6_MainINFO COUNTRY(int indexcount) {
         COUNTRYs.click();
         COUNTRYChoice(indexcount).click();
+        return this;
+    }
+
+    @Step("Выбор Города")
+    public DBP_6_MainINFO City(String cityname) {
+        City.setValue(cityname);
+
         return this;
     }
 
@@ -62,6 +76,14 @@ public class DBP_6_MainINFO {
     @Step("Ввод индекса")
     public DBP_6_MainINFO Indecs(String Indecstext) {
         Indecs.setValue(Indecstext);
+        return this;
+    }
+
+    @Step("Ввод кода страны телефона")
+    public DBP_6_MainINFO Code_Phones(int code_country) {
+        Cod_COUNTRY_Phone.click();
+
+        Phonecountrycodename(code_country).click();
         return this;
     }
 

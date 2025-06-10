@@ -64,14 +64,15 @@ public class CreateProject extends TestBase {
                 Continues();
         INFO
                 .FIO("Название")
-                .COUNTRY(2)
+                .COUNTRY(57)
+//                .City("Москва")
                 .Street("Машиностроителей")
                 .House("10")
                 .Indecs("155055")
-//                .Phones("79965906602")
+                .Code_Phones(49)
                 .Consent_checkbox()
+                .Phones("9965906602")
                 .Create_company();
-
         Company.
                 checkURL();
 
