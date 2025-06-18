@@ -1,11 +1,9 @@
-package pages;
+package pages.DO;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.conditions.Visible;
 import data.MasterData;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 

@@ -1,4 +1,4 @@
-package pages.DBProject.CreateProdject;
+package pages.DB.Project.CreateProject;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Feature;
@@ -9,7 +9,6 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-import static org.openqa.selenium.devtools.v133.debugger.Debugger.pause;
 
 @Owner("Никулин Дима")
 @Feature("Создание проекта")

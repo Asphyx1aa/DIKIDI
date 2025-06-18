@@ -1,12 +1,15 @@
-package pages.DBProject;
+package pages.DB;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
-public class DBP_main {
+public class Projects_list {
 
 
     String FULLURL = "https://test.dikidi.ru/ru/business/projects";
@@ -16,21 +19,26 @@ public class DBP_main {
             Continue = $x("//button[@class='action-btn new-elements-button blue next']");
 
     @Step("Начала создания проекта - Добавить новый")
-    public DBP_main STARTcreate() {
+    public Projects_list STARTcreate() {
         CreateNew.click();
         return this;
     }
 
     @Step("Открытие страницы business/project")
-    public DBP_main Open() {
+    public Projects_list Open() {
         open(FULLURL);
         return this;
     }
 
     @Step("Продолжить в форме создания")
-    public DBP_main Continues() {
+    public Projects_list Continues() {
         Continue.click();
         return this;
+    }
+
+    @Step("Открытие проекта")
+    private  SelenideElement OpenProject(int id_project) {
+        return $x(String.format("//div[@data-id=%d]", id_project)).shouldBe(visible, Duration.ofSeconds(10));
     }
 
 }

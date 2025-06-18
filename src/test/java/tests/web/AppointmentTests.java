@@ -7,7 +7,10 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import org.junit.jupiter.api.*;
-import pages.*;
+import pages.DO.BookingWidgetPage;
+import pages.DO.CatalogPage;
+import pages.DO.CompanyPage;
+import pages.DO.RecordPage;
 
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static io.qameta.allure.SeverityLevel.CRITICAL;

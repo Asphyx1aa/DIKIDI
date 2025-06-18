@@ -8,10 +8,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import pages.CompanyPage;
-import pages.DBProject.CreateProdject.*;
-import pages.DBProject.CreateProdject.DBP_4_specialization.specialization_Servise;
-import pages.DBProject.DBP_main;
+import pages.DO.CompanyPage;
+import pages.DB.Project.CreateProject.*;
+import pages.DB.Project.CreateProject.DBP_4_specialization.specialization_Servise;
+import pages.DB.Projects_list;
 
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
@@ -33,7 +33,7 @@ public class CreateProject extends TestBase {
     @DisplayName("Создание проекта")
     void createProdject() {
 
-        DBP_main MP = new DBP_main();
+        Projects_list MP = new Projects_list();
         DBP_1_add_prodject ADDProject = new DBP_1_add_prodject();
         DBP_2_TypeProject TypeProject = new DBP_2_TypeProject();
         DBP_3_SphereActivities Sphere = new DBP_3_SphereActivities();
