@@ -12,6 +12,7 @@ import pages.DO.CatalogPage;
 import pages.DO.CompanyPage;
 import pages.DO.RecordPage;
 
+import static context.AuthContext.getAuthResponse;
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
@@ -19,7 +20,6 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Feature("Запись")
 public class AppointmentTests extends TestBase {
 
-    private final AuthSteps authSteps = new AuthSteps();
     private final RecordPage recordPage = new RecordPage();
     private final CompanyPage companyPage = new CompanyPage();
     private final BookingWidgetPage bookingWidgetPage = new BookingWidgetPage();
@@ -36,6 +36,7 @@ public class AppointmentTests extends TestBase {
     })
     @DisplayName("Проверяем запись через сотрудника")
     void successfulCreateAppointmentFromMasterTest() {
+        String token = getAuthResponse().path("data.token");
         final String companyUrl = config.getCompanyUrl();
 
         companyPage.openCompanyPage(companyUrl)
@@ -50,9 +51,7 @@ public class AppointmentTests extends TestBase {
                 .completeAppointment()
                 .checkBookingSuccessMessage();
 
-        String token = authSteps.getUserToken(config.getUserPhone(), config.getUserPassword()); // Подумать как убрать дублирующее получение токена
-
-       String bookingId = appointmentSteps.getAppointmentsOfUser(token);
+        String bookingId = appointmentSteps.getAppointmentsOfUser(token);
         appointmentSteps.cancelBooking(token, bookingId);
     }
 
@@ -65,6 +64,7 @@ public class AppointmentTests extends TestBase {
     })
     @DisplayName("Проверяем запись через услуги")
     void successfulCreateAppointmentFromServiceTest() {
+        String token = getAuthResponse().path("data.token");
         final String companyUrl = config.getCompanyUrl();
 
         companyPage.openCompanyPage(companyUrl)
@@ -78,6 +78,9 @@ public class AppointmentTests extends TestBase {
                 .clickOnContinueButton()
                 .completeAppointment()
                 .checkBookingSuccessMessage();
+
+        String bookingId = appointmentSteps.getAppointmentsOfUser(token);
+        appointmentSteps.cancelBooking(token, bookingId);
     }
 
     @WithLogin
@@ -89,6 +92,7 @@ public class AppointmentTests extends TestBase {
     })
     @DisplayName("Проверяем запись из каталога")
     void createAppointmentFromCatalogTest() {
+        String token = getAuthResponse().path("data.token");
         String companyId = config.getCompanyId();
 
         catalogPage.openPage()
@@ -102,6 +106,9 @@ public class AppointmentTests extends TestBase {
                 .clickOnContinueButton()
                 .completeAppointment()
                 .checkBookingSuccessMessage();
+
+        String bookingId = appointmentSteps.getAppointmentsOfUser(token);
+        appointmentSteps.cancelBooking(token, bookingId);
     }
 
     @WithLogin
