@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class Projects_list {
 
 
-    String FULLURL = "https://test.dikidi.ru/ru/business/projects";
+    String FULLURL = "https://dikidi.tech/ru/business/projects";
     private final SelenideElement CreateNew = $x("//button[@class='new-elements-button blue create-promotions']"),
 
     BACK = $x("//button[@class='action-btn new-elements-button-outline blue back']"),

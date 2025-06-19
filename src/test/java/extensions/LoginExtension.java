@@ -28,7 +28,7 @@ public class LoginExtension implements BeforeEachCallback {
 
         // Преобразуем в Selenium Cookie
         Cookie seleniumCookie = new Cookie.Builder("token", cookieToken)
-                .domain("test.dikidi.ru")
+                .domain("dikidi.tech")
                 .path("/")
                 .isHttpOnly(true)
                 .isSecure(true)

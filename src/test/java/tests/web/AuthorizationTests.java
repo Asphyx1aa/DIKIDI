@@ -26,7 +26,7 @@ public class AuthorizationTests extends TestBase {
             @Tag("authorization")
     })
     @DisplayName("Проверка успешной авторизации по номеру телефона")
-    void successfulAuthorizationByNumber() {
+    public void successfulAuthorizationByNumber() {
         UserData user = UserData.fromConfig();
 
         mainPage.openPage()

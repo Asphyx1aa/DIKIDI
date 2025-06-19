@@ -17,6 +17,6 @@ public class TestBase {
 
     @BeforeAll
     static void testSetup() {
-        RestAssured.baseURI = "https://test.dikidi.ru/api";
+        RestAssured.baseURI = "https:///api";
     }
 }

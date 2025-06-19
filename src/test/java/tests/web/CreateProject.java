@@ -33,6 +33,8 @@ public class CreateProject extends TestBase {
     @DisplayName("Создание проекта")
     void createProdject() {
 
+
+
         Projects_list MP = new Projects_list();
         DBP_1_add_prodject ADDProject = new DBP_1_add_prodject();
         DBP_2_TypeProject TypeProject = new DBP_2_TypeProject();
@@ -41,6 +43,8 @@ public class CreateProject extends TestBase {
         DBP_5_AboutYourBusiness AYB = new DBP_5_AboutYourBusiness();
         DBP_6_MainINFO INFO = new DBP_6_MainINFO();
         CompanyPage Company = new CompanyPage();
+        AuthorizationTests AUTH = new AuthorizationTests();
+
 
         MP
                 .Open()
