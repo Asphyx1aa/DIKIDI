@@ -24,7 +24,7 @@ public class LoginExtension implements BeforeEachCallback {
 
         setAuthResponse(authResponse);
 
-        open("/favicon.ico");
+        open("https://dikidi.tech/ru/");
 
         // Преобразуем в Selenium Cookie
         Cookie seleniumCookie = new Cookie.Builder("token", cookieToken)
