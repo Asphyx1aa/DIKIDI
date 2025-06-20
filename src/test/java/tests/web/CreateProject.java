@@ -4,10 +4,9 @@ import annotations.WithLogin;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import pages.DO.CompanyPage;
 import pages.DB.Project.CreateProject.*;
 import pages.DB.Project.CreateProject.DBP_4_specialization.specialization_Servise;
@@ -21,20 +20,29 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 
 public class CreateProject extends TestBase {
 
-    DBP_1_add_prodject ADDProject = new DBP_1_add_prodject();
+
+    //Переменные для быстрого создания теста
+    String NameProject = "Autotest";
+    Integer CountryNumber = 57; // мб переделать на ru en но пока хз
+    String CityName = "Москва";
+    String StreetName = "Машиностроителей";
+    String HouseName = "10";
+    String IndecsMail = "155055";
+    Integer Country_Code_Phones = 49; // Надо бы где-то таблицу со всем этим добром хранить чтоб быстро доставать
+    String Phone_numder = "9965906602";
+
 
     @WithLogin //Быстрый вход в акк
-    @Test
-    @Severity(BLOCKER)
-    @Tags({
+    @Test // Обозначает тест
+    @Order(1) //Указание порядка теста Авторизация->Создание->Настройка->Удаление чистый тест
+    @Severity(BLOCKER) // Алюр степень важности
+    @Tags({ //Теги
             @Tag("web"),
-            @Tag("master")
+            @Tag("project")
     })
-    @DisplayName("Создание проекта")
+    @DisplayName("Создание проекта") // Название проекта
     void createProdject() {
-
-
-
+        //Обозначение Page
         Projects_list MP = new Projects_list();
         DBP_1_add_prodject ADDProject = new DBP_1_add_prodject();
         DBP_2_TypeProject TypeProject = new DBP_2_TypeProject();
@@ -43,44 +51,48 @@ public class CreateProject extends TestBase {
         DBP_5_AboutYourBusiness AYB = new DBP_5_AboutYourBusiness();
         DBP_6_MainINFO INFO = new DBP_6_MainINFO();
         CompanyPage Company = new CompanyPage();
-        AuthorizationTests AUTH = new AuthorizationTests();
+        DeleteProject Delete = new DeleteProject();
 
-
+        // Тест
         MP
                 .Open()
                 .STARTcreate();
-        ADDProject
-                .CreateNewProdject();
-        TypeProject
-                .CreateCompany();
-        Sphere
-                .Servise();
-        Servise
-                .Cleaning();
-        MP
-                .Continues();
+
+        ADDProject.CreateNewProdject();
+        TypeProject.CreateCompany();
+        Sphere.Servise();
+        Servise.Cleaning();
+        MP.Continues();
+
         AYB
                 .Odin_filial()
                 .ot_2_do_5()
                 .first_experience()
                 .reklama_v_internete();
-        MP.
-                Continues();
+
+        MP.Continues();
+
         INFO
-                .FIO("Название")
-                .COUNTRY(57)
-//                .City("Москва")
-                .Street("Машиностроителей")
-                .House("10")
-                .Indecs("155055")
-                .Code_Phones(49)
+                .FIO(NameProject)
+                .COUNTRY(CountryNumber)
+//                .City(CityName)
+                .Street(StreetName)
+                .House(HouseName)
+                .Indecs(IndecsMail)
+                .Code_Phones(Country_Code_Phones)
                 .Consent_checkbox()
-                .Phones("9965906602")
+                .Phones(Phone_numder)
                 .Create_company();
-        Company.
-                checkURL();
+
+        Company.checkURL(); // Проверка
+
+        //Удаление проекта
+//        MP.Open();
+//        Delete.Last();
+
 
     }
+
 
 
 }
