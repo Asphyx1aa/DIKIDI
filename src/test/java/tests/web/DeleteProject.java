@@ -21,7 +21,7 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 
 public class DeleteProject {
 
-
+    //Требуеться оформить по Page Object
     // 2 Варинта использывания
     // ALL = удалить все проекты на акк
     // Last = удалить последний созданный проект
