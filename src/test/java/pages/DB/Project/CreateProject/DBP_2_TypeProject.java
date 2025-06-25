@@ -1,4 +1,4 @@
-package pages.DBProject.CreateProdject;
+package pages.DB.Project.CreateProject;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Feature;

@@ -1,4 +1,4 @@
-package pages.DBProject.CreateProdject.DBP_4_specialization;
+package pages.DB.Project.CreateProject.DBP_4_specialization;
 
 import com.codeborne.selenide.SelenideElement;
 

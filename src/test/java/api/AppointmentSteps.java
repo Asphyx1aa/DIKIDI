@@ -15,14 +15,14 @@ public class AppointmentSteps {
                 .spec(baseSpec)
                 .pathParam("token", token)
                 .when()
-                .get("https://test.dikidi.ru/api/user/bookings?token={token}")
+                .get("https://dikidi.tech/api/user/bookings?token={token}")
                 .then()
                 .spec(baseResponseSpec(200))
                 .log().all()
                 .extract()
                 .as(AppointmentResponse.class);
 
-        return response.getData().getList().getFirst().getId();
+        return response.getData().getList().getFirst().getId(); // Сократить цвпочку вызовов
     }
 
     @Step("Отменяем созданную запись через API")
@@ -32,7 +32,7 @@ public class AppointmentSteps {
                 .pathParam("token", token)
                 .pathParam("bookingId", bookingId)
                 .when()
-                .get("https://test.dikidi.ru/api/booking/remove?token={token}&id={bookingId}")
+                .get("https://dikidi.tech/api/booking/remove?token={token}&id={bookingId}")
                 .then()
                 .log().all()
                 .spec(baseResponseSpec(200));
