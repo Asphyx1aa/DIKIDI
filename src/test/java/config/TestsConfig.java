@@ -12,6 +12,9 @@ public interface TestsConfig extends Config {
     @Key("BROWSER")
     String getBrowser();
 
+    @Key("BROWSER_SIZE")
+    String getBrowserSize();
+
     @Key("USER_PHONE")
     String getUserPhone();
 

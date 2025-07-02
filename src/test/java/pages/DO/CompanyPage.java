@@ -14,7 +14,7 @@ public class CompanyPage {
 
     @Step("Открываем профиль компании")
     public CompanyPage openCompanyPage(String companyId) {
-        open("/ru/profile/" + companyId);
+        open("/profile/" + companyId);
         return this;
     }
 

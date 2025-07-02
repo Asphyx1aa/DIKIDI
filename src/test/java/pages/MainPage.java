@@ -62,6 +62,13 @@ public class MainPage {
         return this;
     }
 
+    @Step("Заполняем поле 'Номер телефона' и отправляем форму")
+    public MainPage setUserNumberWithoutPw(String userNumber) {
+        setUserNumber(userNumber);
+        userNameInput.pressEnter();
+        return this;
+    }
+
     @Step("Заполняем поле 'Номер телефона'")
     public MainPage setUserPassword(String userPassword) {
         userPasswordInput.shouldBe(visible).setValue(userPassword);
@@ -80,7 +87,7 @@ public class MainPage {
         return this;
     }
 
-    @Step("Заполняем форму регистрации")
+    @Step("Заполняем форму регистрации и отправляем ее")
     public MainPage fillRegistrationForm(String userNumber, String userName, String userEmail, String userPassword) {
         userNumberInput.shouldBe(visible).setValue(userNumber);
         userNameInput.shouldBe(visible).setValue(userName);
@@ -92,8 +99,8 @@ public class MainPage {
     }
 
     @Step("Проверяем, что появился алерт о том, что указан неверный пароль")
-    public MainPage checkThatAlertShowed() {
-        alert.shouldBe(visible).shouldHave(text("Неверный логин или пароль"));
+    public MainPage checkThatAlertShowed(String text) {
+        alert.shouldBe(visible).shouldHave(text(text));
         return this;
     }
 

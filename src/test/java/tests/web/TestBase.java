@@ -18,7 +18,7 @@ public class TestBase {
     @BeforeAll
     static void testSetup() {
         Configuration.baseUrl = config.getBaseUrl();
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = config.getBrowserSize();
         Configuration.browser = config.getBrowser();
     }
 

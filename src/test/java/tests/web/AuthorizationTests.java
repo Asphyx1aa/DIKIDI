@@ -53,7 +53,7 @@ public class AuthorizationTests extends TestBase {
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
-                .fillRegistrationForm(user.getUserNumber(), user.getUserName(), user.getUserMail(), user.getUserPassword()) // Пока будет падать из-за необходимости ввести код ТГ
+                .fillRegistrationForm(user.getUserNumber(), user.getUserName(), user.getUserMail(), user.getUserPassword()) // Нужен статичный код
                 .clickOnUserProfile()
                 .openProfilePage()
                 .assertThatNameOfUserIsCorrect(user.getUserName());
@@ -73,7 +73,7 @@ public class AuthorizationTests extends TestBase {
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
-                .fillAuthForm(user.getUserNumber(), "random")
+                .fillAuthForm(user.getUserNumber(), "incorrect pw")
                 .checkThatAlertShowed();
     }
 
@@ -91,7 +91,7 @@ public class AuthorizationTests extends TestBase {
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
-                .setUserNumber(user.getUserNumber())
+                .setUserNumberWithoutPw(user.getUserNumber())
                 .checkThatAlertShowed();
     }
 
@@ -111,6 +111,6 @@ public class AuthorizationTests extends TestBase {
                 .clickOnAuthNumber()
                 .setUserNumber(userData.getUserNumber())
                 .clickOnForgotPass()
-                .verifyThatRecoveryPassModalAppear(); // Мб нужен какой-то статичный код
+                .verifyThatRecoveryPassModalAppear(); // Нужен статичный код
     }
 }
