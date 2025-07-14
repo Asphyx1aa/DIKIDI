@@ -68,13 +68,14 @@ public class AuthorizationTests extends TestBase {
     @DisplayName("Попытка авторизации с неправильным паролем")
     void incorrectPasswordTest() {
         UserData user = UserData.fromConfig();
+        String errorMessage = "Неверный логин или пароль";
 
         mainPage.openPage()
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
                 .fillAuthForm(user.getUserNumber(), "incorrect pw")
-                .checkThatAlertShowed();
+                .checkThatAlertShowed(errorMessage);
     }
 
     @Test
@@ -86,13 +87,14 @@ public class AuthorizationTests extends TestBase {
     @DisplayName("Попытка авторизации без ввода пароля")
     void emptyPasswordTest() {
         UserData user = UserData.fromConfig();
+        String errorMessage = "Нужно указать логин и пароль для авторизации";
 
         mainPage.openPage()
                 .removeCookieBanner()
                 .clickOnAuthButton()
                 .clickOnAuthNumber()
                 .setUserNumberWithoutPw(user.getUserNumber())
-                .checkThatAlertShowed();
+                .checkThatAlertShowed(errorMessage);
     }
 
     @Test

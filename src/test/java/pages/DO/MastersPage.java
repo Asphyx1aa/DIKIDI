@@ -8,59 +8,42 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MastersPage {
-    final SelenideElement //TODO Надо изменить пути
-            addMasterButton = $x("//button[text()='Добавить сотрудника']"),
-            nameMasterInput = $("body > div.bootbox.modal.fade.sw-dialog.master-create.in > div > div > div > div > form > div:nth-child(2) > div > input"),
-            surnameMasterInput = $("body > div.bootbox.modal.fade.sw-dialog.master-create.in > div > div > div > div > form > div:nth-child(3) > div > input"),
-            postMasterInput = $("body > div.bootbox.modal.fade.sw-dialog.master-create.in > div > div > div > div > form > div:nth-child(4) > div > input"),
-            categoryMasterDropdownButton = $("body > div.bootbox.modal.fade.sw-dialog.master-create.in > div > div > div > div > form > div:nth-child(5) > div > button"),
-            categoryMasterDropdownMenu = $("body > div.bootbox.modal.fade.sw-dialog.master-create.in > div > div > div > div > form > div:nth-child(5) > div > div > ul > li:nth-child(2) > a"),
-            addInfoMasterButton = $("body > div.bootbox.modal.fade.sw-dialog.master-create.in > div > div > div > div > form > div.form-group.sw.btns > button"),
-
-    numberPhoneMasterInput = $("#master-profile-21370-8144 > div.modal-sub-body.indent > div > div.content-fields.clearfix > div > div:nth-child(3) > div:nth-child(1) > div > div > table > tbody > tr > td:nth-child(3) > input[type=text]:nth-child(1)"),
-            emailMasterInput = $("#master-profile-21370-8144 > div.modal-sub-body.indent > div > div.content-fields.clearfix > div > div:nth-child(3) > div:nth-child(2) > div > div > input"),
-            infoMasterInput = $("#master-profile-21370-8144 > div.modal-sub-body.indent > div > div.content-fields.clearfix > div > div:nth-child(4) > div > div > textarea"),
-            saveProfileMaster = $("#master-profile-21370-8144 > div.footer > div > div.cols.text-right > button");
-
-    MasterData masterData = MasterData.fakeMasterData();
+    final SelenideElement
+            masterCreateModal = $(".master-create"),
+            addMasterButton = $(".company-masters .btn-primary"),
+            masterNameInput = $(".master-create input[name='name']"),
+            masterSurnameInput = $(".master-create input[name='surname']"),
+            masterJobTitleInput = $(".master-create input[name='post']"),
+            masterCategoryDropdown = $(".master-create .bootstrap-select"),
+            masterCategoryItem = $(".master-create .dropdown-menu").$("a[tabindex='0']"),
+            saveMasterButton = $(".master-create button[type='submit']");
 
     @Step("Открываем профиль компании")
     public MastersPage openMastersPage(String companyId) {
-        open("/ru/owner/masters/?company=" + companyId);
+        open("/owner/masters/?company=" + companyId);
         return this;
     }
 
-    @Step("Кликаем на кнопку Добавить сотрудника, открытие модального окна")
+    @Step("Кликаем на кнопку Добавить сотрудника")
     public MastersPage clickAddMaster() {
         addMasterButton.shouldBe(visible).click();
         return this;
     }
 
-    @Step("Кликаем на кнопку Добавить сотрудника, открытие модального окна")
-    public MastersPage inputValueMaster(
-            String nameMaster,
-            String surnameMaster,
-            String postMaster) {
-        nameMasterInput.setValue(nameMaster);
-        surnameMasterInput.setValue(surnameMaster);
-        postMasterInput.setValue(postMaster);
-        categoryMasterDropdownButton.click();
-        categoryMasterDropdownMenu.click();
+    @Step("Заполняем форму добавления сотрудника")
+    public MastersPage fillMasterForm(String masterName, String masterSurname, String masterJobTitle) {
+        masterCreateModal.shouldBe(visible);
+        masterNameInput.setValue(masterName);
+        masterSurnameInput.setValue(masterSurname);
+        masterJobTitleInput.setValue(masterJobTitle);
+        masterCategoryDropdown.click();
+        masterCategoryItem.click();
         return this;
     }
 
     @Step("Сохраняем информацию о сотруднике")
     public MastersPage clickSaveMaster() {
-        addInfoMasterButton.shouldBe(visible).click();
-        return this;
-    }
-
-    @Step("Добавление информации сотруднику")
-    public MastersPage fillProfileMaster(String phone, String email, String info) {
-        numberPhoneMasterInput.setValue(phone);
-        emailMasterInput.setValue(email);
-        infoMasterInput.setValue(info);
-        saveProfileMaster.click();
+        saveMasterButton.shouldBe(visible).click();
         return this;
     }
 }

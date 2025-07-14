@@ -26,21 +26,14 @@ public class MasterTests extends TestBase {
             @Tag("web"),
             @Tag("master")
     })
-    @DisplayName("Создание сотрудника")
+    @DisplayName("Проверка успешного создания сотрудника")
     void successfulCreateMasterTest() {
         MasterData masterData = MasterData.fakeMasterData();
         String companyId = config.getCompanyId();
 
         mastersPage.openMastersPage(companyId)
                 .clickAddMaster()
-                .inputValueMaster(
-                        masterData.getMasterName(),
-                        masterData.getMasterSurname(),
-                        masterData.getMasterPost())
-                .clickSaveMaster()
-                .fillProfileMaster(
-                        masterData.getMasterPhoneNumber(),
-                        masterData.getMasterEmail(),
-                        masterData.getMasterInfo());
+                .fillMasterForm(masterData.getMasterName(), masterData.getMasterSurname(), masterData.getMasterPost())
+                .clickSaveMaster();
     }
 }
