@@ -20,6 +20,7 @@ public class TestBase {
         Configuration.baseUrl = config.getBaseUrl();
         Configuration.browserSize = config.getBrowserSize();
         Configuration.browser = config.getBrowser();
+        Configuration.holdBrowserOpen = true;
     }
 
     @BeforeEach

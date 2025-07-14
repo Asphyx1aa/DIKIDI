@@ -15,7 +15,7 @@ public class MastersPage {
             masterSurnameInput = $(".master-create input[name='surname']"),
             masterJobTitleInput = $(".master-create input[name='post']"),
             masterCategoryDropdown = $(".master-create .bootstrap-select"),
-            masterCategoryItem = $(".master-create .dropdown-menu").$("a[tabindex='0']"),
+            masterCategoryItem = $(".master-create .dropdown-menu").$("li[data-original-index='1']"),
             saveMasterButton = $(".master-create button[type='submit']");
 
     @Step("Открываем профиль компании")
@@ -37,7 +37,7 @@ public class MastersPage {
         masterSurnameInput.setValue(masterSurname);
         masterJobTitleInput.setValue(masterJobTitle);
         masterCategoryDropdown.click();
-        masterCategoryItem.click();
+        masterCategoryItem.shouldBe(visible).click();
         return this;
     }
 
