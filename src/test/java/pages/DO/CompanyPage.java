@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class CompanyPage {
 
@@ -37,8 +38,11 @@ public class CompanyPage {
     }
 
     @Step("Проверка url Профиля компании")
-    public CompanyPage checkURL() {
+    public String checkURL() {
         CheckCreateCompany.shouldBe(visible);
-        return this;
+        String currentURL = url();
+        return currentURL.split("=")[1];  // Просто возвращаем цифры
+
+
     }
 }

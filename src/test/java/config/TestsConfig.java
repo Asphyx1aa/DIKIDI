@@ -32,4 +32,10 @@ public interface TestsConfig extends Config {
 
     @Key("COMPANY_ID")
     String getCompanyId();
+
+    @Key("MAIN_URL")
+    String getMainАddress();
+
+    @Key("LANGUAGE")
+    String getLANGUAGE();
 }

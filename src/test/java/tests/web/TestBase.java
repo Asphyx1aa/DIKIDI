@@ -10,10 +10,15 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import static com.codeborne.selenide.Selenide.open;
+
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class TestBase {
 
     final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
+
+
 
     @BeforeAll
     static void testSetup() {
@@ -22,6 +27,9 @@ public class TestBase {
         Configuration.browser = config.getBrowser();
         Configuration.holdBrowserOpen = true;
     }
+
+
+
 
     @BeforeEach
     void beforeEach() {
@@ -34,4 +42,10 @@ public class TestBase {
         Attach.browserConsoleLogs();
         Selenide.closeWebDriver();
     }
+
+
+
+
+
+
 }

@@ -110,5 +110,12 @@ public class DBP_6_MainINFO {
         return this;
     }
 
+    @Step("Согласие на получение рассылок")
+    public DBP_6_MainINFO Consent_mailing_checkbox() {
+        executeJavaScript("document.querySelector('label[for=\"agreement_ad\"]').click();");
+        return this;
+    }
+
+
 
 }
