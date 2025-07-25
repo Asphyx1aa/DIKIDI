@@ -8,6 +8,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.open;
 
 public class List_of_Сlients {
 
@@ -17,7 +18,7 @@ public class List_of_Сlients {
 
             ButtonADD_NEW_Client = $x("//button[@class='btn btn-primary insert-btn']"),
             Input_NAME = $x("//input[@name=\"name\"]"),
-            Input_NumberPHONE = $("/html/body/div[4]/div/div/div/div/form/div[2]/div[1]/div/input"),
+            Input_NumberPHONE = $x("/html/body/div[4]/div/div/div/div/form/div[2]/div[1]/div/input"),
             Button_ADD = $x("//div[@class='form-group sw btns']//button"),
             Check_ADD_client = $x("//div[@class='line-name']//a[text()='123 7999']"),
             Open_dropdown_menu_language = $x("/html/body/div[9]/div/div/div/div/form/div[2]/div[1]/div/div/button");
@@ -33,8 +34,9 @@ public class List_of_Сlients {
         return $x("//div[@class='line-name']//a[text()= '"+ Name +"' ]");
     }
 
-    public List_of_Сlients open(){
-        helpers.BuilderURL(pagesListClient);
+    public List_of_Сlients Open(){
+        String Page = helpers.BuilderURL(pagesListClient);
+        open(Page);
         return this;
     }
 

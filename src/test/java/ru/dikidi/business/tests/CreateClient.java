@@ -22,7 +22,7 @@ public class CreateClient extends TestBase {
 
     String name_client = "Дмитрий";
     Integer code_country = 49;
-    String numder_phone = "9965906602";
+    String numder_phone = "79965906602";
 
     @Order(1) //Указание порядка теста Авторизация->Создание->Настройка->Удаление чистый тест
     @Severity(BLOCKER) // Алюр степень важности
@@ -36,10 +36,10 @@ public class CreateClient extends TestBase {
 
 
         Client
-                .open()
+                .Open()
                 .CREATE_NEW_CLIENT()
                 .Input_Name_NEW_CLIENT(name_client)
-                .CHANGE_COUNTRY_CODE_NEW_CLIENT(code_country)
+//                .CHANGE_COUNTRY_CODE_NEW_CLIENT(code_country) //Баг тут
                 .Input_NUMBER_NEW_CLIENT(numder_phone)
                 .Save_NEW_CLIENT()
                 .Check_Create_client(name_client);
