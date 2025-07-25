@@ -55,6 +55,7 @@ public class CreateProject extends TestBase {
             DeleteProject Delete = new DeleteProject();
             TestBase Base = new TestBase();
             helpers HELP = new helpers();
+            CreateClient Client = new CreateClient();
         // Тест
             MP
                     .Open()
@@ -77,7 +78,7 @@ public class CreateProject extends TestBase {
             INFO
                     .FIO(NameProject)
                     .COUNTRY(CountryNumber)
-    //                .City(CityName)
+       //            .City(CityName)
                     .Street(StreetName)
                     .House(HouseName)
                     .Indecs(IndecsMail)
@@ -88,6 +89,8 @@ public class CreateProject extends TestBase {
                     .Create_company();
 
             Company.checkURL(); // Проверка
+            Client.Create_Client_ONE();
+
 
             //Удаление проекта
     //        MP.Open();

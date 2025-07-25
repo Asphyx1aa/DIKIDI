@@ -14,18 +14,22 @@ public class helpers {
     final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
 
 
-    public static String extractUrl() {  // Вытягиваем номер проекта из url
+    public static String ExtractID() {  // Вытягиваем номер проекта из url
         String url = url();  // Получаем текущий URL
-        return url.substring(url.lastIndexOf("=") + 1); //Отправляем номер
+        return url.substring(url.lastIndexOf("=") + 1);
     }
 
-    public static String BilderURL(String point) {
+    public static String BuilderURL(String point) {
         String Main = config.getMainАddress();
         String Language = config.getLANGUAGE();
-        String ExtractURL = extractUrl();
+        String ExtractURL = ExtractID();
         String URL = Main + Language + point + "?company=" + ExtractURL;
         return URL; //Собранный URL
+
+        //Пример использывания
     }
+
+
 
 
 }
