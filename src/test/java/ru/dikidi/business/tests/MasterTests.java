@@ -14,7 +14,6 @@ import ru.dikidi.common.data.MasterData;
 import ru.dikidi.online.pages.MastersPage;
 import ru.dikidi.online.tests.TestBase;
 
-
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
 @Owner("Разживин Даниил")

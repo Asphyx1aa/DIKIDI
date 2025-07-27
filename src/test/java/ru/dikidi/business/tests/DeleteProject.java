@@ -21,29 +21,27 @@ public class DeleteProject {
     String MotiveDelete = "ПРОГОН АВТОТЕСТА"; // Текст при удалении
 
 
-
     SelenideElement Not_needed = $x("//label[@for='reason-1']"),
-    More = $x("//button[@class='new-elements-button white show-more-button']"),
-    Hard_Settings  = $x("//label[@for='reason-2']"),
-    necessary_functionality = $x("//label[@for='reason-3']"),
-    other_software = $x("//label[@for='reason-4']"),
-    Closed = $x("//label[@for='reason-5']"),
-    Another_reason = $x("//label[@for='reason-16']"),
-    new_reason = $x("//label[@for='reason-18']"),
-    first_reason = $x("//label[@for='reason-20']"),
-    Another = $x("//label[@for='reason-21']"),
-    PoleVvoda = $x("//textarea[@name='description']"),
-    DeleteButton = $x("//button[@class='new-elements-button red delete-btn']"),
-    FinalButtonDelete = $x("//button[@class='new-elements-button blue success-delete']");
+            More = $x("//button[@class='new-elements-button white show-more-button']"),
+            Hard_Settings = $x("//label[@for='reason-2']"),
+            necessary_functionality = $x("//label[@for='reason-3']"),
+            other_software = $x("//label[@for='reason-4']"),
+            Closed = $x("//label[@for='reason-5']"),
+            Another_reason = $x("//label[@for='reason-16']"),
+            new_reason = $x("//label[@for='reason-18']"),
+            first_reason = $x("//label[@for='reason-20']"),
+            Another = $x("//label[@for='reason-21']"),
+            PoleVvoda = $x("//textarea[@name='description']"),
+            DeleteButton = $x("//button[@class='new-elements-button red delete-btn']"),
+            FinalButtonDelete = $x("//button[@class='new-elements-button blue success-delete']");
+
     private SelenideElement Button_Drop(int NumberProject) {
-        return $x("//a[@data-href='/ru/business/ajax/projects/modal_delete/?'"+ NumberProject +"'']");
+        return $x("//a[@data-href='/ru/business/ajax/projects/modal_delete/?'" + NumberProject + "'']");
     }
 
 
     ElementsCollection ProjectCollection_Button_Ops = $$x("//div[@class='last-column dots']//div[@class = 'new-elements-dots new-elements-expand-clicked']"),
             Collection_ButtonDrop = $$x("//a[@class = 'item remove']");
-
-
 
 
     //Использовать в 30 тест с созданием проекта
@@ -75,7 +73,7 @@ public class DeleteProject {
             @Tag("delete")
     })
     @DisplayName("Удалить проект") // Название проекта
-    public void Last(){
+    public void Last() {
         Projects_list MP = new Projects_list();
         MP.Open();
         ProjectCollection_Button_Ops.first().click();
@@ -84,7 +82,7 @@ public class DeleteProject {
 
     }
 
-    public DeleteProject DeleteSetting(){
+    public DeleteProject DeleteSetting() {
 
         //Чек-бокс причин удаления
         Not_needed.shouldBe(visible).click();
@@ -105,9 +103,6 @@ public class DeleteProject {
         FinalButtonDelete.click();
         return this;
     }
-
-
-
 
 
 }

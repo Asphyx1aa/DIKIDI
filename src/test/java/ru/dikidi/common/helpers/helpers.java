@@ -5,7 +5,6 @@ import org.aeonbits.owner.ConfigFactory;
 import ru.dikidi.common.TestBase;
 import ru.dikidi.common.config.TestsConfig;
 
-
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class helpers {
@@ -23,13 +22,10 @@ public class helpers {
         String Main = config.getMainАddress();
         String Language = config.getLANGUAGE();
         String ExtractURL = ExtractID();
-        String URL = Main + Language + point + "?company=" + ExtractURL;
-        return URL; //Собранный URL
+        return Main + Language + point + "?company=" + ExtractURL; //Собранный URL
 
         //Пример использывания
     }
-
-
 
 
 }

@@ -3,7 +3,6 @@ package ru.dikidi.online.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
@@ -16,18 +15,12 @@ public class TestBase {
 
     final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
 
-
-
     @BeforeAll
     static void testSetup() {
         Configuration.baseUrl = config.getBaseUrl();
         Configuration.browserSize = config.getBrowserSize();
         Configuration.browser = config.getBrowser();
-        Configuration.holdBrowserOpen = true;
     }
-
-
-
 
     @BeforeEach
     void beforeEach() {
@@ -40,10 +33,4 @@ public class TestBase {
         Attach.browserConsoleLogs();
         Selenide.closeWebDriver();
     }
-
-
-
-
-
-
 }

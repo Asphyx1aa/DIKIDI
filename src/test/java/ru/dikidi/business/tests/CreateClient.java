@@ -4,7 +4,6 @@ package ru.dikidi.business.tests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -15,7 +14,6 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 
 @Owner("Никулин Дмитрий")
 @Feature("Создание клиента")
-
 
 
 public class CreateClient extends TestBase {
@@ -30,7 +28,8 @@ public class CreateClient extends TestBase {
             @Tag("web"),
             @Tag("project")
     })
-    @DisplayName("Создание клиента ") // Название проекта
+    @DisplayName("Создание клиента ")
+        // Название проекта
     void Create_Client_ONE() {
         List_of_Сlients Client = new List_of_Сlients();
 
@@ -45,5 +44,4 @@ public class CreateClient extends TestBase {
                 .Check_Create_client(name_client);
 
     }
-
 }

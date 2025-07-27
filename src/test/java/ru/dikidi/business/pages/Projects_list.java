@@ -37,7 +37,7 @@ public class Projects_list {
     }
 
     @Step("Открытие проекта")
-    private  SelenideElement OpenProject(int id_project) {
+    private SelenideElement OpenProject(int id_project) {
         return $x(String.format("//div[@data-id=%d]", id_project)).shouldBe(visible, Duration.ofSeconds(10));
     }
 

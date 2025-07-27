@@ -42,7 +42,5 @@ public class CompanyPage {
         CheckCreateCompany.shouldBe(visible);
         String currentURL = url();
         return currentURL.split("=")[1];  // Просто возвращаем цифры
-
-
     }
 }

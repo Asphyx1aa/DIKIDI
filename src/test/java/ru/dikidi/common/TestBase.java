@@ -16,16 +16,12 @@ public class TestBase {
     final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
 
 
-
     @BeforeAll
     static void testSetup() {
         Configuration.baseUrl = config.getBaseUrl();
         Configuration.browserSize = config.getBrowserSize();
         Configuration.browser = config.getBrowser();
-        Configuration.holdBrowserOpen = true;
     }
-
-
 
 
     @BeforeEach
@@ -39,10 +35,6 @@ public class TestBase {
         Attach.browserConsoleLogs();
         Selenide.closeWebDriver();
     }
-
-
-
-
 
 
 }

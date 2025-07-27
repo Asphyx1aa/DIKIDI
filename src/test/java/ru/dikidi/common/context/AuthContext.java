@@ -12,5 +12,4 @@ public class AuthContext {
     public static Response getAuthResponse() {
         return authData.get();
     }
-
 }

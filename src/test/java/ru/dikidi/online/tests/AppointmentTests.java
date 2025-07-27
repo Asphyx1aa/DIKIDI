@@ -15,7 +15,6 @@ import ru.dikidi.online.pages.CatalogPage;
 import ru.dikidi.online.pages.CompanyPage;
 import ru.dikidi.online.pages.RecordPage;
 
-
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static ru.dikidi.common.context.AuthContext.getAuthResponse;
