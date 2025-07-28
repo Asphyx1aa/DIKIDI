@@ -4,11 +4,9 @@ package ru.dikidi.business.tests;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
+import org.junit.jupiter.api.*;
 import ru.dikidi.business.pages.Project.Clients.List_of_Сlients;
+import ru.dikidi.common.annotations.LoginAndCreateProject;
 
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
@@ -22,13 +20,15 @@ public class CreateClient extends TestBase {
     Integer code_country = 49;
     String numder_phone = "79965906602";
 
-    @Order(1) //Указание порядка теста Авторизация->Создание->Настройка->Удаление чистый тест
-    @Severity(BLOCKER) // Алюр степень важности
-    @Tags({ //Теги
-            @Tag("web"),
-            @Tag("project")
-    })
-    @DisplayName("Создание клиента ")
+    @LoginAndCreateProject
+    @Test
+//    @Order(1) //Указание порядка теста Авторизация->Создание->Настройка->Удаление чистый тест
+//    @Severity(BLOCKER) // Алюр степень важности
+//    @Tags({ //Теги
+//            @Tag("web"),
+//            @Tag("project")
+//    })
+//    @DisplayName("Создание клиента ")
         // Название проекта
     void Create_Client_ONE() {
         List_of_Сlients Client = new List_of_Сlients();
