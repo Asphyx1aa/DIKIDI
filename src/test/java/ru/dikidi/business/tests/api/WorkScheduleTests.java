@@ -59,12 +59,13 @@ public class WorkScheduleTests {
             String today = year + "-" + refactorDate(month) + "-" + refactorDate(day);
             day++;
 
-            if(day > 30){ //TODO но тут не заполнится 31 число, если есть в месяце, если сильно важно, то придется делать проверку на количество дней в месяце
+            if(day > 31){ //TODO но тут не заполнится 31 число, если есть в месяце, если сильно важно, то придется делать проверку на количество дней в месяце
                 month++;
                 day = 1;
             }
-            for(int x = 0; x < masterIds.size(); x++){
-                String masterDate = "masters[" + masterIds.get(x) + "][" + today + "]";
+
+            for (Integer masterId : masterIds) {
+                String masterDate = "masters[" + masterId + "][" + today + "]";
                 request.formParam(masterDate, today);
             }
         }
@@ -82,11 +83,9 @@ public class WorkScheduleTests {
     private String refactorDate(int var){
         int length = String.valueOf(Math.abs(var)).length();
         if(length == 1){
-            String result = "0" + var;
-            return result;
+            return "0" + var;
         } else {
-            String result = "" + var;
-            return result;
+            return "" + var;
         }
     }
 }
