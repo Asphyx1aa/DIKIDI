@@ -14,6 +14,8 @@ import ru.dikidi.common.data.MasterData;
 import ru.dikidi.online.pages.MastersPage;
 import ru.dikidi.online.tests.TestBase;
 
+import java.util.Locale;
+
 import static io.qameta.allure.SeverityLevel.BLOCKER;
 
 @Owner("Разживин Даниил")
@@ -32,6 +34,7 @@ public class MasterTests extends TestBase {
     })
     @DisplayName("Проверка успешного создания сотрудника")
     void successfulCreateMasterTest() {
+        Locale locale = new Locale("ru");
         MasterData masterData = MasterData.fakeMasterData();
         String companyId = config.getCompanyId();
 
