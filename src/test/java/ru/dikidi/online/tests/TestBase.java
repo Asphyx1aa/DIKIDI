@@ -8,29 +8,37 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.dikidi.common.config.TestsConfig;
 import ru.dikidi.common.helpers.Attach;
 
 public class TestBase {
 
-    final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
+    protected final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
+    private static final Logger log = LoggerFactory.getLogger(ru.dikidi.business.tests.TestBase.class);
 
     @BeforeAll
-    static void testSetup() {
-        Configuration.baseUrl = config.getBaseUrl();
-        Configuration.browserSize = config.getBrowserSize();
-        Configuration.browser = config.getBrowser();
+    protected static void testSetup() {
+        Configuration.baseUrl = System.getProperty("baseUrl", config.getBaseUrl()) ;
+        Configuration.browserSize = System.getProperty("browserSize", config.getBrowserSize());
+        Configuration.browser = System.getProperty("browser", config.getBrowser());
     }
 
     @BeforeEach
-    void beforeEach() {
+    protected void beforeEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
-    void afterEach() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.browserConsoleLogs();
-        Selenide.closeWebDriver();
+    protected void afterEach() {
+        try {
+            Attach.screenshotAs("Скриншот после теста");
+            Attach.browserConsoleLogs();
+        } catch (Exception e) {
+            log.error("Ошибка при добавлении вложений в Allure", e.getMessage());
+        } finally {
+            Selenide.closeWebDriver();
+        }
     }
 }
