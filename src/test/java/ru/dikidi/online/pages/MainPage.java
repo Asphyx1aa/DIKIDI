@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
-    final SelenideElement authButton = $(".authorization"),
+    private final SelenideElement authButton = $(".authorization"),
             authByNumberButton = $(".modal-content").$(".number"),
             userNumberInput = $(".modal-content").$("#number"),
             userPasswordInput = $(".modal-content").$("[name='password']"),
@@ -16,6 +16,7 @@ public class MainPage {
             profileButton = $$(".dropdown-menu li").first(),
             agreementCheckBox = $("#agreement"),
             userAgeCheckBox = $("#age"),
+            continueButton = $x("//form[@action='https://auth.dikidi.tech/ajax/user/auth/']//button[@type='submit'][contains(text(),'Продолжить')]"),
             userEmailInput = $("input[name='repeat_email']"),
             userNameInput = $(".form-group.name").$("input"),
             mainSearchField = $(".main-search").$("input[type='text']"),
@@ -62,16 +63,15 @@ public class MainPage {
         return this;
     }
 
-    @Step("Заполняем поле 'Номер телефона' и отправляем форму")
-    public MainPage setUserNumberWithoutPw(String userNumber) {
-        setUserNumber(userNumber);
-        userNameInput.pressEnter();
+    @Step("Заполняем поле 'Пароль'")
+    public MainPage setUserPassword(String userPassword) {
+        userPasswordInput.shouldBe(visible).setValue(userPassword);
         return this;
     }
 
-    @Step("Заполняем поле 'Номер телефона'")
-    public MainPage setUserPassword(String userPassword) {
-        userPasswordInput.shouldBe(visible).setValue(userPassword);
+    @Step("Кликаем по кнопке 'Продолжить' в форме авторизации")
+    public MainPage clickOnContinueButton() {
+        continueButton.click();
         return this;
     }
 

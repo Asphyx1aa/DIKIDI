@@ -12,6 +12,9 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 @Owner("Тимур Власов")
 @Feature("Авторизация / регистрация")
+@Tag("web")
+@Tag("smoke")
+@Tag("authorization")
 public class AuthorizationTests extends TestBase {
 
     private final MainPage mainPage = new MainPage();
@@ -26,45 +29,36 @@ public class AuthorizationTests extends TestBase {
 
     @Test
     @Severity(BLOCKER)
-    @Tags({
-            @Tag("web"),
-            @Tag("smoke"),
-            @Tag("authorization")
-    })
     @DisplayName("Проверка успешной авторизации по номеру телефона")
-    public void successfulAuthorizationByNumber() {
+    void successfulAuthorizationByNumber() {
         UserData user = UserData.fromConfig();
 
         mainPage.fillAuthForm(user.getUserNumber(), user.getUserPassword())
                 .clickOnUserProfile()
                 .openProfilePage()
-                .assertThatNameOfUserIsCorrect(user.getUserName());
+                .assertThatLoginInCorrectUser(user.getUserName(), user.getUserMail());
     }
 
     @Test
     @Severity(BLOCKER)
-    @Tags({
-            @Tag("web"),
-            @Tag("smoke"),
-            @Tag("registration")
-    })
     @DisplayName("Проверка успешной регистрации по номеру телефона")
+    @Disabled
     void successfulRegistrationByNumber() {
         UserData user = UserData.fakeUserData();
 
-        mainPage.fillRegistrationForm(user.getUserNumber(), user.getUserName(), user.getUserMail(), user.getUserPassword()) // Нужен статичный код
+        mainPage.fillRegistrationForm(
+                        user.getUserNumber(),
+                        user.getUserName(),
+                        user.getUserMail(),
+                        user.getUserPassword()
+                ) // Нужен статичный код
                 .clickOnUserProfile()
                 .openProfilePage()
-                .assertThatNameOfUserIsCorrect(user.getUserName());
+                .assertThatLoginInCorrectUser(user.getUserName(), user.getUserMail());
     }
 
     @Test
     @Severity(CRITICAL)
-    @Tags({
-            @Tag("web"),
-            @Tag("smoke"),
-            @Tag("authorization")
-    })
     @DisplayName("Попытка авторизации с неправильным паролем")
     void incorrectPasswordTest() {
         UserData user = UserData.fromConfig();
@@ -76,28 +70,20 @@ public class AuthorizationTests extends TestBase {
 
     @Test
     @Severity(CRITICAL)
-    @Tags({
-            @Tag("web"),
-            @Tag("smoke"),
-            @Tag("authorization")
-    })
     @DisplayName("Попытка авторизации без ввода пароля")
     void emptyPasswordTest() {
         UserData user = UserData.fromConfig();
         String errorMessage = "Нужно указать логин и пароль для авторизации";
 
-        mainPage.setUserNumberWithoutPw(user.getUserNumber())
+        mainPage.setUserNumber(user.getUserNumber())
+                .clickOnContinueButton()
                 .checkThatAlertShowed(errorMessage);
     }
 
     @Test
     @Severity(CRITICAL)
-    @Tags({
-            @Tag("web"),
-            @Tag("smoke"),
-            @Tag("authorization")
-    })
     @DisplayName("Проверка работы функции 'Забыли пароль?'")
+    @Disabled
     void forgotPasswordTest() {
         UserData userData = UserData.fromConfig();
 

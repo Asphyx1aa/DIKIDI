@@ -36,7 +36,7 @@ public class TestBase {
             Attach.screenshotAs("Скриншот после теста");
             Attach.browserConsoleLogs();
         } catch (Exception e) {
-            log.error("Ошибка при добавлении вложений в Allure", e.getMessage());
+            log.error("Ошибка при добавлении вложений в Allure: {}", e.getMessage());
         } finally {
             Selenide.closeWebDriver();
         }

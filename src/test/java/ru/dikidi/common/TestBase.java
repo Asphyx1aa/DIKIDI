@@ -16,7 +16,7 @@ import ru.dikidi.common.helpers.Attach;
 public class TestBase {
 
     protected final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
-    private static final Logger log = LoggerFactory.getLogger(ru.dikidi.business.tests.TestBase.class);
+    private static final Logger log = LoggerFactory.getLogger(TestBase.class);
 
     @BeforeAll
     protected static void testSetup() {

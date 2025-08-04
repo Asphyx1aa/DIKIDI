@@ -15,8 +15,8 @@ import ru.dikidi.common.helpers.Attach;
 
 public class TestBase {
 
-    protected final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
-    private static final Logger log = LoggerFactory.getLogger(ru.dikidi.business.tests.TestBase.class);
+    protected static final TestsConfig config = ConfigFactory.create(TestsConfig.class);
+    private static final Logger log = LoggerFactory.getLogger(TestBase.class);
 
     @BeforeAll
     protected static void testSetup() {
@@ -36,7 +36,7 @@ public class TestBase {
             Attach.screenshotAs("Скриншот после теста");
             Attach.browserConsoleLogs();
         } catch (Exception e) {
-            log.error("Ошибка при добавлении вложений в Allure", e.getMessage());
+            log.error("Ошибка при добавлении вложений в Allure: {}", e.getMessage());
         } finally {
             Selenide.closeWebDriver();
         }
