@@ -42,7 +42,7 @@ public class AuthorizationTests extends TestBase {
     @Test
     @Severity(BLOCKER)
     @DisplayName("Проверка успешной регистрации по номеру телефона")
-    @Disabled
+    @Disabled("Нужен проверочный код")
     void successfulRegistrationByNumber() {
         UserData user = UserData.fakeUserData();
 
@@ -51,7 +51,7 @@ public class AuthorizationTests extends TestBase {
                         user.getUserName(),
                         user.getUserMail(),
                         user.getUserPassword()
-                ) // Нужен статичный код
+                )
                 .clickOnUserProfile()
                 .openProfilePage()
                 .assertThatLoginInCorrectUser(user.getUserName(), user.getUserMail());
@@ -83,12 +83,12 @@ public class AuthorizationTests extends TestBase {
     @Test
     @Severity(CRITICAL)
     @DisplayName("Проверка работы функции 'Забыли пароль?'")
-    @Disabled
+    @Disabled("Нужен проверочный код")
     void forgotPasswordTest() {
         UserData userData = UserData.fromConfig();
 
         mainPage.setUserNumber(userData.getUserNumber())
                 .clickOnForgotPass()
-                .verifyThatRecoveryPassModalAppear(); // Нужен статичный код
+                .verifyThatRecoveryPassModalAppear();
     }
 }
