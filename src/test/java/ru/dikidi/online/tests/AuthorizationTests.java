@@ -70,6 +70,16 @@ public class AuthorizationTests extends TestBase {
 
     @Test
     @Severity(CRITICAL)
+    @DisplayName("Попытка авторизации с несущуствующим номером телефона")
+    void shouldOpenRegistrationFormTest() {
+        String notRegistredPhone = "79665551122";
+
+        mainPage.setUserNumber(notRegistredPhone)
+                .assertThatRegistrationFormOpened();
+    }
+
+    @Test
+    @Severity(CRITICAL)
     @DisplayName("Проверка работы функции 'Забыли пароль?'")
     @Disabled("Нужен проверочный код")
     void forgotPasswordTest() {
