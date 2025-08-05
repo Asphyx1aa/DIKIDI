@@ -70,18 +70,6 @@ public class AuthorizationTests extends TestBase {
 
     @Test
     @Severity(CRITICAL)
-    @DisplayName("Попытка авторизации без ввода пароля")
-    void emptyPasswordTest() {
-        UserData user = UserData.fromConfig();
-        String errorMessage = "Нужно указать логин и пароль для авторизации";
-
-        mainPage.setUserNumber(user.getUserNumber())
-                .clickOnContinueButton()
-                .checkThatAlertShowed(errorMessage);
-    }
-
-    @Test
-    @Severity(CRITICAL)
     @DisplayName("Проверка работы функции 'Забыли пароль?'")
     @Disabled("Нужен проверочный код")
     void forgotPasswordTest() {
@@ -90,5 +78,17 @@ public class AuthorizationTests extends TestBase {
         mainPage.setUserNumber(userData.getUserNumber())
                 .clickOnForgotPass()
                 .verifyThatRecoveryPassModalAppear();
+    }
+
+    @Test
+    @Severity(CRITICAL)
+    @DisplayName("Попытка авторизации без ввода пароля")
+    void emptyPasswordTest() {
+        UserData user = UserData.fromConfig();
+        String errorMessage = "Нужно указать логин и пароль для авторизации";
+
+        mainPage.setUserNumber(user.getUserNumber())
+                .clickOnContinueButton()
+                .checkThatAlertShowed(errorMessage);
     }
 }
