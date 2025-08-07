@@ -2,14 +2,12 @@ package ru.dikidi.common.helpers;
 
 
 import org.aeonbits.owner.ConfigFactory;
-import ru.dikidi.common.TestBase;
 import ru.dikidi.common.config.TestsConfig;
 
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class helpers {
 
-    TestBase Base = new TestBase();
     final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
 
 

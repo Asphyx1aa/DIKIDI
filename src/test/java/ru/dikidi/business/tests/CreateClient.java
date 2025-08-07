@@ -3,18 +3,16 @@ package ru.dikidi.business.tests;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
 import org.junit.jupiter.api.*;
 import ru.dikidi.business.pages.Project.Clients.List_of_Сlients;
 import ru.dikidi.common.annotations.LoginAndCreateProject;
-
-import static io.qameta.allure.SeverityLevel.BLOCKER;
+import ru.dikidi.common.base.WebTestBase;
 
 @Owner("Никулин Дмитрий")
 @Feature("Создание клиента")
 
 
-public class CreateClient extends TestBase {
+public class CreateClient extends WebTestBase {
 
     String name_client = "Дмитрий";
     Integer code_country = 49;

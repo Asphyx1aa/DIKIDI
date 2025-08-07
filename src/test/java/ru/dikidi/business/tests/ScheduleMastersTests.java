@@ -5,12 +5,13 @@ import ru.dikidi.business.tests.api.WorkScheduleTests;
 import com.codeborne.selenide.ElementsCollection;
 import org.junit.jupiter.api.*;
 import ru.dikidi.business.pages.Project.Schedule.WorkSchedule;
+import ru.dikidi.common.base.WebTestBase;
 
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
 import static ru.dikidi.common.context.AuthContext.getAuthResponse;
 
-public class ScheduleMastersTests extends TestBase{
+public class ScheduleMastersTests extends WebTestBase {
 
 
     WorkSchedule workSchedule = new WorkSchedule();

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.dikidi.business.pages.Project.ServicePage;
 import ru.dikidi.common.annotations.WithLogin;
+import ru.dikidi.common.base.WebTestBase;
 import ru.dikidi.common.data.ServiceData;
 
 @Owner("Тимур Власов")
@@ -14,7 +15,7 @@ import ru.dikidi.common.data.ServiceData;
 @Tag("web")
 @Tag("smoke")
 @Tag("service")
-public class ServicesTests extends TestBase {
+public class ServicesTests extends WebTestBase {
     ServicePage servicePage = new ServicePage();
 
     @Test

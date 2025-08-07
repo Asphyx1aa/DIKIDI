@@ -13,7 +13,7 @@ public class RecordPage {
 
     @Step("Открываем страницу 'Мои записи'")
     public RecordPage openPage() {
-        open("/ru/recording");
+        open("/recording");
         return this;
     }
 

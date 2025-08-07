@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import ru.dikidi.common.annotations.WithLogin;
+import ru.dikidi.common.base.WebTestBase;
 import ru.dikidi.common.config.TestsConfig;
 import ru.dikidi.common.data.MasterData;
 import ru.dikidi.online.pages.MastersPage;
-import ru.dikidi.online.tests.TestBase;
 
 import java.util.Locale;
 
@@ -20,7 +20,7 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 
 @Owner("Разживин Даниил")
 @Feature("Сотрудники")
-public class MasterTests extends TestBase {
+public class MasterTests extends WebTestBase {
 
     final MastersPage mastersPage = new MastersPage();
     final static TestsConfig config = ConfigFactory.create(TestsConfig.class);

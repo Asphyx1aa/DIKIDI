@@ -4,6 +4,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import org.junit.jupiter.api.*;
+import ru.dikidi.common.base.WebTestBase;
 import ru.dikidi.common.data.UserData;
 import ru.dikidi.online.pages.MainPage;
 
@@ -15,7 +16,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Tag("web")
 @Tag("smoke")
 @Tag("authorization")
-public class AuthorizationTests extends TestBase {
+public class AuthorizationTests extends WebTestBase {
 
     private final MainPage mainPage = new MainPage();
 

@@ -9,6 +9,7 @@ import ru.dikidi.business.pages.Project.CreateProject.*;
 import ru.dikidi.business.pages.Project.CreateProject.DBP_4_specialization.specialization_Servise;
 import ru.dikidi.business.pages.Projects_list;
 import ru.dikidi.common.annotations.WithLogin;
+import ru.dikidi.common.base.WebTestBase;
 import ru.dikidi.common.helpers.helpers;
 import ru.dikidi.online.pages.CompanyPage;
 
@@ -18,7 +19,7 @@ import static io.qameta.allure.SeverityLevel.BLOCKER;
 @Owner("Никулин Дмитрий")
 @Feature("Создание проекта")
 
-public class CreateProject extends TestBase {
+public class CreateProject extends WebTestBase {
 
 
     //Переменные для быстрого создания теста
@@ -53,7 +54,6 @@ public class CreateProject extends TestBase {
         DBP_6_MainINFO INFO = new DBP_6_MainINFO();
         CompanyPage Company = new CompanyPage();
         DeleteProject Delete = new DeleteProject();
-        TestBase Base = new TestBase();
         helpers HELP = new helpers();
         CreateClient Client = new CreateClient();
         // Тест
