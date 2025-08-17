@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.dikidi.business.pages.Project.ServicePage;
 import ru.dikidi.common.annotations.WithLogin;
+import ru.dikidi.common.api.ServicesSteps;
 import ru.dikidi.common.base.WebTestBase;
 import ru.dikidi.common.data.ServiceData;
 
@@ -15,8 +16,9 @@ import ru.dikidi.common.data.ServiceData;
 @Tag("web")
 @Tag("smoke")
 @Tag("service")
-public class ServicesTests extends WebTestBase {
+class ServicesTests extends WebTestBase {
     ServicePage servicePage = new ServicePage();
+    ServicesSteps servicesSteps = new ServicesSteps();
 
     @Test
     @WithLogin
@@ -39,5 +41,8 @@ public class ServicesTests extends WebTestBase {
                         serviceData.getServiceTitle(),
                         serviceData.getServicePrice()
                 );
+
+
+        servicesSteps.deleteService();
     }
 }

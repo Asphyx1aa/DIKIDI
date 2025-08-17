@@ -64,7 +64,7 @@ class AuthorizationTests extends WebTestBase {
                     .assertThatLoginInCorrectUser(user.getUserName(), user.getUserMail());
         }
 
-        @ParameterizedTest(name = "Авторизация с номером {0} и паролем '{1}' → сообщение '{2}'")
+        @ParameterizedTest(name = "Авторизация с номером {0} и паролем {1} → сообщение {2}")
         @Severity(CRITICAL)
         @CsvSource({
                 "'79999999999', 'incorrect_pw', 'Неверный логин или пароль'",
@@ -97,7 +97,6 @@ class AuthorizationTests extends WebTestBase {
                     .verifyThatRecoveryPassModalAppear();
         }
     }
-
 
     @Nested
     @WithLogin

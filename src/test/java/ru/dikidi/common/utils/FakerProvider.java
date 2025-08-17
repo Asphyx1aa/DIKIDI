@@ -5,7 +5,7 @@ import com.github.javafaker.Faker;
 import java.util.Locale;
 
 public class FakerProvider {
-    private static final Faker FAKER = new Faker(new Locale("en-GB"));
+    private static final Faker FAKER = new Faker(Locale.of("en", "GB"));
 
     public static Faker getFaker() {
         return FAKER;

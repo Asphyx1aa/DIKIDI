@@ -20,7 +20,7 @@ import static ru.dikidi.common.context.AuthContext.getAuthResponse;
 @Feature("Запись")
 @Tag("appointment")
 @Tag("web")
-public class AppointmentTests extends WebTestBase {
+class AppointmentTests extends WebTestBase {
 
     private final RecordPage recordPage = new RecordPage();
     private final CompanyPage companyPage = new CompanyPage();

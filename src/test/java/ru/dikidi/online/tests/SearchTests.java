@@ -14,7 +14,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 @Owner("Тимур Власов")
 @Feature("Поиск")
 public class SearchTests extends WebTestBase {
-    final MainPage mainPage = new MainPage();
+    private final MainPage mainPage = new MainPage();
 
     @ParameterizedTest
     @ValueSource(strings = {

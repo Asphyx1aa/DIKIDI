@@ -23,7 +23,7 @@ public class AppointmentSteps {
                 .extract()
                 .as(AppointmentResponse.class);
 
-        return response.getData().getList().get(0).getId(); // Сократить цвпочку вызовов
+        return response.getData().getList().getFirst().getId();
     }
 
     @Step("Отменяем созданную запись через API")
