@@ -12,6 +12,9 @@ public interface TestsConfig extends Config {
     @Key("BROWSER")
     String getBrowser();
 
+    @Key("IS_HEADLESS")
+    String isHeadless();
+
     @Key("BROWSER_SIZE")
     String getBrowserSize();
 

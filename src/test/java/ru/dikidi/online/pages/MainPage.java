@@ -13,6 +13,7 @@ public class MainPage {
             userPasswordInput = $(".modal-content").$("[name='password']"),
             userProfileButton = $(".dropdown.user").$(".img-circle"),
             profileButton = $$(".dropdown-menu li").first(),
+            logoutButton = $x("(//a[contains(text(),'Выйти')])[1]"),
             agreementCheckBox = $("#agreement"),
             userAgeCheckBox = $("#age"),
             continueButton = $x("//form[@action='https://auth.dikidi.tech/ajax/user/auth/']//button[@type='submit'][contains(text(),'Продолжить')]"),
@@ -109,6 +110,12 @@ public class MainPage {
         return this;
     }
 
+    @Step("Выходим из профиля")
+    public MainPage clickOnLogoutButton() {
+        logoutButton.click();
+        return this;
+    }
+
     @Step("Переходим в профиль авторизованного пользователя")
     public ProfilePage openProfilePage() {
         ProfilePage profilePage = new ProfilePage();
@@ -132,6 +139,12 @@ public class MainPage {
     @Step("Проверяем, что открылась форма регистрации")
     public MainPage assertThatRegistrationFormOpened() {
         userNameInput.shouldBe(visible);
+        return this;
+    }
+
+    @Step("Проверяем, видна кнопка авторизации")
+    public MainPage assertThatAuthButtonIsVisible() {
+        authButton.shouldBe(visible);
         return this;
     }
 }

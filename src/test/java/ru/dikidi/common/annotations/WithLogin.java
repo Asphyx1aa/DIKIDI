@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 
 @ExtendWith(LoginExtension.class)
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Target({ElementType.TYPE, ElementType.METHOD})
 public @interface WithLogin {
 }
