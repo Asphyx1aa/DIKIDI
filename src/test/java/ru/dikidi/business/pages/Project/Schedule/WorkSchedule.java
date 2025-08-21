@@ -31,8 +31,8 @@ public class WorkSchedule {
             selectorLunchToTime = $(".sch_time--lunch_to.open").$("li[data-original-index='35']");
 
     @Step
-    public WorkSchedule SaveDefaultScheduleForMonthOnceMaster() {
-        open("https://dikidi.tech/ru/owner/schedule/?company=3454");
+    public WorkSchedule SaveDefaultScheduleForMonthOnceMaster(String companyId) {
+        open("https://dikidi.tech/ru/owner/schedule/?company=" + companyId);
         workScheduleRow.get(iterationsTest).shouldBe(visible).click();
         saveWorkSchedule.shouldBe(visible).click();
         iterationsTest++;
