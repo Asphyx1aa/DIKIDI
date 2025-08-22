@@ -11,15 +11,16 @@ repositories {
     mavenCentral()
 }
 
-def selenideVersion = '7.9.0'
+def selenideVersion = '7.10.0'
 def restAssuredVersion = '5.5.1'
-def junitVersion = '5.12.2'
+def junitVersion = '5.13.4'
 def logbackVersion = '1.5.18'
 def allureSelenideVersion = '2.29.0'
 def allureRestAssuredVersion = '2.29.0'
 def ownerVersion = '1.0.12'
 def appiumVersion = '8.3.0'
 def fakerVersion = '1.0.2'
+def jacksonVersion = '2.19.2'
 
 allure {
     report {
@@ -52,6 +53,7 @@ dependencies {
     // API
     testImplementation("io.rest-assured:rest-assured:${restAssuredVersion}")
     testImplementation("io.qameta.allure:allure-rest-assured:${allureRestAssuredVersion}")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
 
     // Reporting
     testImplementation("io.qameta.allure:allure-selenide:${allureSelenideVersion}")
