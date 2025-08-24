@@ -12,6 +12,7 @@ import ru.dikidi.common.models.AuthResponse;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 @Owner("Тимур Власов")
 @Feature("Авторизация / регистрация")
@@ -33,8 +34,12 @@ class AuthorizationTests extends ApiTestBase {
         );
 
         final String token = response.getData().getToken();
-        assertThat("Токен не должен быть null", token, notNullValue());
-        assertThat("Токен не должен быть пустым", token, not(emptyString()));
 
+        assertAll("Проверка успешной авторизации",
+                () -> assertThat("ID пользователя должен быть указан", response.getData().getId(), notNullValue()),
+                () -> assertThat("Номер должен совпадать", response.getData().getNumber(), equalTo(user.getUserNumber())),
+                () -> assertThat("Токен не должен быть null", token, notNullValue()),
+                () -> assertThat("Токен не должен быть пустым", token, not(emptyString()))
+        );
     }
 }
