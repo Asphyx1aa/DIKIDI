@@ -1,15 +1,15 @@
 package ru.dikidi.common.data;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 import org.aeonbits.owner.ConfigFactory;
 import ru.dikidi.common.config.TestsConfig;
 
 import static ru.dikidi.common.utils.FakerProvider.getFaker;
 
 
-@Getter
-@AllArgsConstructor
+@Data
+@Builder
 public class UserData {
     private final String userNumber;
     private final String userPassword;
