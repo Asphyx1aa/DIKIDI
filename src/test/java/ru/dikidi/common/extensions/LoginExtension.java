@@ -8,7 +8,7 @@ import ru.dikidi.common.data.UserData;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static ru.dikidi.common.api.AuthSteps.getUserAuth;
+import static ru.dikidi.common.api.AuthSteps.getAuthorizationResponse;
 import static ru.dikidi.common.context.AuthContext.setAuthResponse;
 
 public class LoginExtension implements BeforeEachCallback {
@@ -19,7 +19,7 @@ public class LoginExtension implements BeforeEachCallback {
         final String userNumber = UserData.fromConfig().getUserNumber();
         final String userPassword = UserData.fromConfig().getUserPassword();
 
-        Response authResponse = getUserAuth(userNumber, userPassword);
+        Response authResponse = getAuthorizationResponse(userNumber, userPassword);
         String cookieToken = authResponse.getCookie("token");
 
         setAuthResponse(authResponse);

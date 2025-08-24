@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class ApiTestBase extends TestBase {
 
+    public final static String AUTH_URL = "https://auth.dikidi.tech";
+
     @BeforeAll
     static void apiSetup() {
         log.info("Настройка конфигурации RestAssured");

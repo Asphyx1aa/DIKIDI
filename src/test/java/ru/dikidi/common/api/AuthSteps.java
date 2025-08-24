@@ -2,31 +2,31 @@ package ru.dikidi.common.api;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import ru.dikidi.common.models.AuthResponse;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 import static ru.dikidi.common.specs.AuthSpec.auth;
 import static ru.dikidi.common.specs.BaseSpec.baseResponseSpec;
-
+import static ru.dikidi.common.specs.BaseSpec.baseSpec;
 
 public class AuthSteps {
 
-    @Step("Получаем токен пользователя")
-    public static Response getUserAuth(String userNumber, String password) {
+    @Step("Авторизуемся в аккаунт пользователя через API")
+    public AuthResponse loginInAccount(String url, String userNumber, String password) {
         return given()
-                .when()
-                .contentType("multipart/form-data")
+                .spec(baseSpec)
                 .multiPart("number", userNumber)
                 .multiPart("password", password)
-                .post("https://auth.dikidi.tech/api/user/login")
+                .when()
+                .post(url + "/api/user/login")
                 .then()
-                .body("data.token", notNullValue())
-                .log().all()
+                .spec(baseResponseSpec(200))
                 .extract()
-                .response();
+                .as(AuthResponse.class);
     }
 
-    @Step("Авторизуемся в аккаунт пользователя через API")
+    @Step("Получаем ответ авторизации")
     public static Response getAuthorizationResponse(String userNumber, String password) {
 
         return given()
@@ -42,5 +42,19 @@ public class AuthSteps {
                 .spec(baseResponseSpec(200))
                 .extract()
                 .response();
+    }
+
+    @Step("Получаем токен из AuthResponse")
+    public static String extractToken(AuthResponse authResponse) {
+        if (authResponse == null || authResponse.getData() == null) {
+            throw new IllegalStateException("AuthResponse или data равны null");
+        }
+
+        String token = authResponse.getData().getToken();
+        if (token == null || token.isEmpty()) {
+            throw new IllegalStateException("Токен отсутствует или пустой");
+        }
+
+        return token;
     }
 }
