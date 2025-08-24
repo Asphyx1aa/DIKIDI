@@ -1,11 +1,10 @@
 package ru.dikidi.common.utils;
 
-import com.github.javafaker.Faker;
-
+import net.datafaker.Faker;
 import java.util.Locale;
 
 public class FakerProvider {
-    private static final Faker FAKER = new Faker(Locale.of("en", "GB"));
+    private static final Faker FAKER = new Faker(Locale.of("ru", "RU"));
 
     public static Faker getFaker() {
         return FAKER;

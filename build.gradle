@@ -12,14 +12,14 @@ repositories {
 }
 
 def selenideVersion = '7.10.0'
-def restAssuredVersion = '5.5.1'
+def restAssuredVersion = '5.5.6'
 def junitVersion = '5.13.4'
 def logbackVersion = '1.5.18'
 def allureSelenideVersion = '2.29.0'
 def allureRestAssuredVersion = '2.29.0'
 def ownerVersion = '1.0.12'
 def appiumVersion = '8.3.0'
-def fakerVersion = '1.0.2'
+def fakerVersion = '2.4.4'
 def jacksonVersion = '2.19.2'
 
 allure {
@@ -48,7 +48,7 @@ dependencies {
     testImplementation("io.appium:java-client:${appiumVersion}")
 
     // Generate Data
-    testImplementation("com.github.javafaker:javafaker:${fakerVersion}")
+    testImplementation("net.datafaker:datafaker:${fakerVersion}")
 
     // API
     testImplementation("io.rest-assured:rest-assured:${restAssuredVersion}")
@@ -88,5 +88,12 @@ task auth_tests(type: Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {
         includeTags("authorization", "registration")
+    }
+}
+
+task api_tests(type: Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform {
+        includeTags("api")
     }
 }
