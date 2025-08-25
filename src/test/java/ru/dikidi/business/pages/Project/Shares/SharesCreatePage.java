@@ -92,17 +92,18 @@ public class SharesCreatePage {
     }
 
     @Step("Выбор услуг для акции")
-    public SharesCreatePage selectServicesForShare(){
+    public SharesCreatePage selectServicesForShare(int _servicesCount){
         final ElementsCollection listServices = $$("");
         addServicesButton.shouldBe(visible).click();
-        listServices.get(1).shouldBe(clickable).click();
+        for(int i = 0; i < _servicesCount; i++){
+            listServices.get(i).shouldBe(clickable).click();
+        }
         return this;
     }
 
     @Step("Настройка процентов для каждой услуги")
     public SharesCreatePage setPercentForEveryServices(String _PersonalPercent, int _servicesCount){
         final ElementsCollection individualDiscountServicesInput = $$("");
-
         for (int i = 0; i < _servicesCount; i++) {
             individualDiscountServicesInput.get(i).setValue(_PersonalPercent);
         }

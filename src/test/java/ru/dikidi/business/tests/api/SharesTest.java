@@ -34,7 +34,7 @@ public class SharesTest {
                 .asString();
     }
 
-    @Step("Получение списка акций")  //TODO без пагинации
+    @Step("Получение списка акций")
     public void getSharesList(String token, String company_id) {
         String response = RestAssured
                 .given()
