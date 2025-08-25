@@ -2,6 +2,7 @@ package ru.dikidi.online.tests.api;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,6 +22,11 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 @Tag("api")
 class AuthorizationTests extends ApiTestBase {
     AuthSteps authSteps = new AuthSteps();
+
+    @BeforeEach
+    void logoutBeforeTests() {
+        authSteps.logoutFromAccount(AUTH_URL);
+    }
 
     @Test
     @DisplayName("Проверяем авторизацию через API")

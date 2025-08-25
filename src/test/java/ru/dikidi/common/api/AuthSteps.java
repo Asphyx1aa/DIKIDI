@@ -26,6 +26,15 @@ public class AuthSteps {
                 .as(AuthResponse.class);
     }
 
+    @Step("Выходим из аккаунта пользователя через API")
+    public void logoutFromAccount(String url) {
+        given()
+                .spec(baseSpec)
+                .get(url + "/api/user/logout")
+                .then()
+                .spec(baseResponseSpec(200));
+    }
+
     @Step("Получаем ответ авторизации")
     public static Response getAuthorizationResponse(String userNumber, String password) {
 
