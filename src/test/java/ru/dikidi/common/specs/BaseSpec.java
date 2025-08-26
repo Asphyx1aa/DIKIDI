@@ -13,6 +13,7 @@ public class BaseSpec {
             .filter(withCustomTemplates())
             .contentType("multipart/form-data")
             .log().uri()
+            .log().cookies()
             .log().method()
             .log().body();
 

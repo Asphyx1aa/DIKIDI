@@ -13,7 +13,7 @@ import static ru.dikidi.common.specs.BaseSpec.baseSpec;
 public class AuthSteps {
 
     @Step("Авторизуемся в аккаунт пользователя через API")
-    public AuthResponse loginInAccount(String url, String userNumber, String password) {
+    public static AuthResponse loginInAccount(String url, String userNumber, String password) {
         return given()
                 .spec(baseSpec)
                 .multiPart("number", userNumber)
@@ -27,10 +27,11 @@ public class AuthSteps {
     }
 
     @Step("Выходим из аккаунта пользователя через API")
-    public void logoutFromAccount(String url) {
+    public void logoutFromAccount(String url, String token) {
         given()
                 .spec(baseSpec)
-                .get(url + "/api/user/logout")
+                .cookie("token", token)
+                .post(url + "/api/user/logout")
                 .then()
                 .spec(baseResponseSpec(200));
     }
