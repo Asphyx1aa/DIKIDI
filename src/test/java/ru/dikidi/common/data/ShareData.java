@@ -8,8 +8,10 @@ import static ru.dikidi.common.utils.FakerProvider.getFaker;
 @Getter
 @AllArgsConstructor
 public class ShareData {
-    private final String titleShare;
-    private final String descriptionShare;
+    final String titleShare;
+    final String descriptionShare;
+
+
 
     public static ShareData fakeShareData() {
         return new ShareData(

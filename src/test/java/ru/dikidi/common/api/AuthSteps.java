@@ -28,7 +28,6 @@ public class AuthSteps {
 
     @Step("Авторизуемся в аккаунт пользователя через API")
     public static Response getAuthorizationResponse(String userNumber, String password) {
-
         return given()
                 .spec(auth)
                 .contentType("multipart/form-data")

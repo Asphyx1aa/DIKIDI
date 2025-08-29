@@ -12,23 +12,23 @@ import static com.codeborne.selenide.Selenide.*;
 public class SharesCreatePage {
 
     final SelenideElement
-    saveShare1 = $(".left .breadcrumbs"),
-    saveShare2 = $(".left .breadcrumbs"),
+    saveShare1 = $("#alert-text").$("button[title='Сохранить']"),
+    saveShare2 = $("#help").$("button[title='Сохранить акцию']"),
     titleShare = $("#item-name"),
     descriptionShare = $(".panel").$("#description"),
-    workDirectionShareDropDown = $(""),
-    addAvatarImage = $(""),
-    addAvatarImage2 = $(""),
-    addImageGallery = $(""),
-    generalPercentShare = $(""),
-    dateBeginShare = $(""),
-    dateEndShare = $(""),
+    workDirectionShareDropDown = $("@[name='categories[]']"),
+    addAvatarImage = $("a[title='Выберите изображение']"),
+    addAvatarImage2 = $("a[title='Выбрать фото']"),
+    addImageGallery = $(".file .download"),
+    generalPercentShare = $("input[name='discount']"),
+    dateBeginShare = $("input[name='date_start']"),
+    dateEndShare = $("input[name='stop']"),
     typePeriodShare = $(""),
-    addServicesButton = $(""),
-    saveSelectedServiceButton = $(""),
+    addServicesButton = $("button[title='Добавить услугу']"),
+    saveSelectedServiceButton = $("button[title='Готово']"),
 
-    workerSettingServicesDropDown = $(""),
-    removeServicesButton = $("");
+    workerSettingServicesDropDown = $(".glyphicon .glyphicon-user"),
+    removeServicesButton = $(".remove");
 
     @Step("Открываю страницу")
     public SharesCreatePage openPage(String _companyId){

@@ -50,4 +50,21 @@ public class SharesTest {
                 .extract()
                 .asString();
     }
+
+    @Step("Получение списка акций")
+    public void postShareCreate(String token, String company_id) {
+        String response = RestAssured
+                .given()
+                .spec(baseSpec)
+                .header("Content-Type", "application/json")
+                .header("Authorization", "0e3997b62d22a8237fecdd128ee8f2eea8853cbc")
+                .queryParam("token", token)
+                .queryParam("company", company_id)
+                .when()
+                .get("https://dikidi.tech/api/owner/shares/list/")
+                .then()
+                .log().all()
+                .extract()
+                .asString();
+    }
 }

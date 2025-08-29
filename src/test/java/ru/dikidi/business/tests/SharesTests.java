@@ -13,15 +13,14 @@ import ru.dikidi.common.config.TestsConfig;
 import ru.dikidi.common.data.ShareData;
 import ru.dikidi.online.tests.TestBase;
 
-import static io.qameta.allure.SeverityLevel.BLOCKER;
 import static io.qameta.allure.SeverityLevel.NORMAL;
 
 @Owner("Разживин Даниил")
 @Feature("Создание акции")
 public class SharesTests extends TestBase{
 
-    final SharesCreatePage sharesCreatePage = new SharesCreatePage();
-    final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
+    private final SharesCreatePage sharesCreatePage = new SharesCreatePage();
+    private final static TestsConfig config = ConfigFactory.create(TestsConfig.class);
     ShareData shareData = ShareData.fakeShareData();
 
     String companyId = config.getCompanyId();
@@ -32,74 +31,78 @@ public class SharesTests extends TestBase{
     @Test
     @Severity(NORMAL)
     @Tags({
-            @Tag("web"),
-            @Tag("project")
+        @Tag("web"),
+        @Tag("share")
     })
     void CreateSimpleShare(){
-            sharesCreatePage.openPage(companyId)
-                .fillTitleShare(titleShare)
-                .fillDescriptionShare(descriptionShare)
-                .loadBasicImage()
-                .setGeneralPercentDiscountShare("40")
-                .selectServicesForShare(1)
-                .saveShare();
+        sharesCreatePage.openPage(companyId)
+            .fillTitleShare(titleShare)
+            .fillDescriptionShare(descriptionShare)
+            .loadBasicImage()
+            .setGeneralPercentDiscountShare("40")
+            .selectServicesForShare(1)
+            .saveShare();
     }
 
     @WithLogin
     @Test
+    @Severity(NORMAL)
     @Tags({
-            @Tag("web"),
-            @Tag("project")
+        @Tag("web"),
+        @Tag("share")
     })
     void CreateMomentRecordShare(){
-            sharesCreatePage.openPage(companyId)
-                .fillTitleShare(titleShare)
-                .fillDescriptionShare(descriptionShare)
-                .loadBasicImage()
-                .setGeneralPercentDiscountShare("32")
-                .selectTypePeriodShare("Момент записи")
-                .selectServicesForShare(1)
-                .saveShare();
+        sharesCreatePage.openPage(companyId)
+            .fillTitleShare(titleShare)
+            .fillDescriptionShare(descriptionShare)
+            .loadBasicImage()
+            .setGeneralPercentDiscountShare("32")
+            .selectTypePeriodShare("Момент записи")
+            .selectServicesForShare(1)
+            .saveShare();
     }
 
     @WithLogin
     @Test
+    @Severity(NORMAL)
     @Tags({
-            @Tag("web"),
-            @Tag("project")
+        @Tag("web"),
+        @Tag("share")
     })
     void CreatePeriodRecordShare(){
-            sharesCreatePage.openPage(companyId)
-                .fillTitleShare(titleShare)
-                .fillDescriptionShare(descriptionShare)
-                .loadBasicImage()
-                .setGeneralPercentDiscountShare("32")
-                .selectTypePeriodShare("Время визита")
-                .selectServicesForShare(1)
-                .saveShare();
+        sharesCreatePage.openPage(companyId)
+            .fillTitleShare(titleShare)
+            .fillDescriptionShare(descriptionShare)
+            .loadBasicImage()
+            .setGeneralPercentDiscountShare("32")
+            .selectTypePeriodShare("Время визита")
+            .selectServicesForShare(1)
+            .saveShare();
     }
 
     @WithLogin
     @Test
+    @Severity(NORMAL)
     @Tags({
-            @Tag("web"),
-            @Tag("project")
+        @Tag("web"),
+        @Tag("share")
     })
     void CreateWithIndividualPercentForServices(){
-            sharesCreatePage.openPage(companyId)
-                .fillTitleShare(titleShare)
-                .fillDescriptionShare(descriptionShare)
-                .loadBasicImage()
-                .selectServicesForShare(4)
-                .setPercentForEveryServices("12" ,4)
-                .saveShare();
+        sharesCreatePage.openPage(companyId)
+            .fillTitleShare(titleShare)
+            .fillDescriptionShare(descriptionShare)
+            .loadBasicImage()
+            .selectServicesForShare(4)
+            .setPercentForEveryServices("12" ,4)
+            .saveShare();
     }
 
     @WithLogin
     @Test //TODO не написано
+    @Severity(NORMAL)
     @Tags({
-            @Tag("web"),
-            @Tag("project")
+        @Tag("web"),
+        @Tag("share")
     })
     void CreateShareWithCustomMasters(){
         sharesCreatePage.openPage(companyId)
