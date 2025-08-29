@@ -12,6 +12,23 @@ import static ru.dikidi.common.specs.BaseSpec.baseSpec;
 
 public class AuthSteps {
 
+
+    @Step("Получаем токен пользователя")
+    public static Response getUserAuth(String userNumber, String password) {
+        return given()
+                .when()
+                .contentType("multipart/form-data")
+                .multiPart("number", userNumber)
+                .multiPart("password", password)
+                .post("https://auth.dikidi.tech/api/user/login")
+                .then()
+                .body("data.token", notNullValue())
+                .log().all()
+                .extract()
+                .response();
+    }
+
+
     @Step("Авторизуемся в аккаунт пользователя через API")
     public static AuthResponse loginInAccount(String url, String userNumber, String password) {
         return given()

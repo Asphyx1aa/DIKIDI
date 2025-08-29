@@ -25,6 +25,14 @@ public class helpers {
         //Пример использывания
     }
 
+    public static String BuilderURLStart(String point, String id) {
+        String Main = config.getMainАddress();
+        String Language = config.getLANGUAGE();
+        String ExtractURL = ExtractID();
+        return Main + Language + point + "?company=" + id; //Собранный URL
+
+        //Пример использывания
+    }
 
 }
 

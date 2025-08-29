@@ -1,18 +1,25 @@
 package ru.dikidi.business.pages.Project.Clients;
 
 import com.codeborne.selenide.SelenideElement;
+import ru.dikidi.common.api.ProjectSteps;
 import ru.dikidi.common.helpers.helpers;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.id;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
+import static ru.dikidi.common.helpers.helpers.BuilderURLStart;
+
+import ru.dikidi.common.models.AuthResponse;
+import ru.dikidi.common.models.ProjectResponse;
 
 public class List_of_Сlients {
 
-    String pagesListClient = "owner/clients/";
 
+
+    String pagesListClient = "owner/clients/";
     SelenideElement
 
             ButtonADD_NEW_Client = $x("//button[@class='btn btn-primary insert-btn']"),
@@ -31,8 +38,12 @@ public class List_of_Сlients {
         return $x("//div[@class='line-name']//a[text()= '" + Name + "' ]");
     }
 
-    public List_of_Сlients Open() {
-        String Page = helpers.BuilderURL(pagesListClient);
+
+
+
+
+    public List_of_Сlients Open(String projectId) {
+        String Page = BuilderURLStart(pagesListClient, projectId);
         open(Page);
         return this;
     }
