@@ -53,6 +53,17 @@ class ServicesTests extends WebTestBase {
         ServiceData serviceData = ServiceData.fakeServiceData();
 
         servicePage.openPage(config.getCompanyId())
-                .clickOnAddServiceButton();
+                .clickOnAddServiceButton()
+                .clickOnPersonalServiceButton()
+                .addServiceTitle(serviceData.getServiceTitle())
+                .chooseServiceCategory()
+                .addServicePrice(serviceData.getServicePrice())
+                .saveService()
+                .verifyThatServiceIsCorrect(
+                        serviceData.getServiceTitle(),
+                        serviceData.getServicePrice()
+                );
+
+        servicesSteps.deleteService();
     }
 }
