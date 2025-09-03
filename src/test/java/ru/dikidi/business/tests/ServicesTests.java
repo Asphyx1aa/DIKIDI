@@ -22,7 +22,7 @@ class ServicesTests extends WebTestBase {
 
     @Test
     @WithLogin
-    @DisplayName("Проверка создания услуги")
+    @DisplayName("Проверка создания услуги в проекте компании")
     void successfulCreateServiceTest() {
         ServiceData serviceData = ServiceData.fakeServiceData();
 
@@ -44,5 +44,15 @@ class ServicesTests extends WebTestBase {
 
 
         servicesSteps.deleteService();
+    }
+
+    @Test
+    @WithLogin
+    @DisplayName("Проверка создания услуги в проекте фрилансера")
+    void successfulCreateServiceFreelanceTest() {
+        ServiceData serviceData = ServiceData.fakeServiceData();
+
+        servicePage.openPage(config.getCompanyId())
+                .clickOnAddServiceButton();
     }
 }
