@@ -8,6 +8,7 @@ import ru.dikidi.business.pages.Project.Clients.List_of_Сlients;
 import ru.dikidi.common.annotations.CreateProject;
 import ru.dikidi.common.base.WebTestBase;
 import ru.dikidi.common.data.Storage.ProjectStorage;
+import ru.dikidi.common.enums.ProjectType;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -22,7 +23,6 @@ public class CreateClient extends WebTestBase {
     Integer code_country = 49;
     String numder_phone = "79965906602";
 
-    @CreateProject
     @Test
 //    @Order(1) //Указание порядка теста Авторизация->Создание->Настройка->Удаление чистый тест
 //    @Severity(BLOCKER) // Алюр степень важности
