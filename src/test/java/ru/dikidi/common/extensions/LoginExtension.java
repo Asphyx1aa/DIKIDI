@@ -16,18 +16,20 @@ public class LoginExtension implements BeforeEachCallback {
     @Override
     public void beforeEach(ExtensionContext context) {
 
+        final String FAVICON_URL = "https://dikidi.tech/favicon.svg";
+
         final String userNumber = UserData.fromConfig().getUserNumber();
         final String userPassword = UserData.fromConfig().getUserPassword();
 
-        Response authResponse = getAuthorizationResponse(userNumber, userPassword);
-        String cookieToken = authResponse.getCookie("token");
+        final Response authResponse = getAuthorizationResponse(userNumber, userPassword);
+        final String cookieToken = authResponse.getCookie("token");
 
         setAuthResponse(authResponse);
 
-        open("https://dikidi.tech/favicon.svg");
+        open(FAVICON_URL);
 
         // Преобразуем в Selenium Cookie
-        Cookie seleniumCookie = new Cookie.Builder("token", cookieToken)
+        final Cookie seleniumCookie = new Cookie.Builder("token", cookieToken)
                 .domain("dikidi.tech")
                 .path("/")
                 .isHttpOnly(true)
@@ -36,5 +38,4 @@ public class LoginExtension implements BeforeEachCallback {
 
         getWebDriver().manage().addCookie(seleniumCookie);
     }
-
 }

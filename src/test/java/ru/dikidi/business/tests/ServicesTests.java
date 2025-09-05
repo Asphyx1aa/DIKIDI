@@ -7,9 +7,13 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.dikidi.business.pages.Project.ServicePage;
 import ru.dikidi.common.annotations.WithLogin;
+import ru.dikidi.common.annotations.WithProject;
 import ru.dikidi.common.api.ServicesSteps;
 import ru.dikidi.common.base.WebTestBase;
 import ru.dikidi.common.data.ServiceData;
+import ru.dikidi.common.enums.ProjectType;
+
+import static ru.dikidi.common.context.ProjectContext.getProjectResponse;
 
 @Owner("Тимур Власов")
 @Feature("Услуга")
@@ -22,11 +26,13 @@ class ServicesTests extends WebTestBase {
 
     @Test
     @WithLogin
+    @WithProject(type = ProjectType.COMPANY)
     @DisplayName("Проверка создания услуги")
     void successfulCreateServiceTest() {
         ServiceData serviceData = ServiceData.fakeServiceData();
+        String companyId = getProjectResponse().jsonPath().getString("data.id");
 
-        servicePage.openPage(config.getCompanyId())
+        servicePage.openPage(companyId)
                 .clickOnAddServiceButton()
                 .clickOnPersonalServiceButton()
                 .addServiceTitle(serviceData.getServiceTitle())

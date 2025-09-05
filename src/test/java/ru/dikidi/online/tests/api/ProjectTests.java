@@ -7,7 +7,7 @@ import ru.dikidi.common.data.UserData;
 import static ru.dikidi.common.api.AuthSteps.*;
 import static ru.dikidi.common.base.ApiTestBase.AUTH_URL;
 
-class ProjectTests {
+//class ProjectTests {
 //    ProjectSteps projectSteps = new ProjectSteps();
 
 //    @Test
@@ -21,4 +21,4 @@ class ProjectTests {
 //
 //        projectSteps.createProject(token);
 //    }
-}
+//}

@@ -3,7 +3,7 @@ package ru.dikidi.common.api;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import ru.dikidi.common.data.Storage.ProjectStorage;
+//import ru.dikidi.common.data.Storage.ProjectStorage;
 import ru.dikidi.common.models.ProjectResponse;
 
 import static io.restassured.RestAssured.given;
@@ -42,7 +42,7 @@ public class CreateProjectSteps {
         ProjectResponse response1 = response.as(ProjectResponse.class);
 
         // Сохраняем в хранилище
-        ProjectStorage.setCreatedProject(response1.getData());
+        //ProjectStorage.setCreatedProject(response1.getData());
 
     }
 
